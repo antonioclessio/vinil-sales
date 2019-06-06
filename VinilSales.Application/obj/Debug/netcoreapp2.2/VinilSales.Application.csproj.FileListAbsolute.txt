@@ -1,0 +1,16 @@
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Application.deps.json
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Application.dll
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Application.pdb
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Domain.dll
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Repository.dll
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Repository.Domain.dll
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Repository.Domain.pdb
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Repository.pdb
+C:\Pessoal\vinil-sales\VinilSales.Application\bin\Debug\netcoreapp2.2\VinilSales.Domain.pdb
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.csprojAssemblyReference.cache
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.csproj.CoreCompileInputs.cache
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.AssemblyInfoInputs.cache
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.AssemblyInfo.cs
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.csproj.CopyComplete
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.dll
+C:\Pessoal\vinil-sales\VinilSales.Application\obj\Debug\netcoreapp2.2\VinilSales.Application.pdb

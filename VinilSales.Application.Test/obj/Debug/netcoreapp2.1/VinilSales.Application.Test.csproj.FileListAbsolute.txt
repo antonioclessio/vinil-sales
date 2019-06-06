@@ -6,9 +6,9 @@ C:\Pessoal\vinil-sales\VinilSales.Application.Test\bin\Debug\netcoreapp2.1\Vinil
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\bin\Debug\netcoreapp2.1\VinilSales.Application.Test.runtimeconfig.dev.json
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\bin\Debug\netcoreapp2.1\VinilSales.Application.Test.dll
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\bin\Debug\netcoreapp2.1\VinilSales.Application.Test.pdb
+C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.csprojAssemblyReference.cache
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.csproj.CoreCompileInputs.cache
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.AssemblyInfoInputs.cache
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.AssemblyInfo.cs
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.dll
 C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.pdb
-C:\Pessoal\vinil-sales\VinilSales.Application.Test\obj\Debug\netcoreapp2.1\VinilSales.Application.Test.csprojAssemblyReference.cache
