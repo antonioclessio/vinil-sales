@@ -750,19 +750,6 @@
         "compile": {
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
-      },
-      "VinilSales.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.InMemory": "2.2.4"
-        },
-        "compile": {
-          "bin/placeholder/VinilSales.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/VinilSales.Domain.dll": {}
-        }
       }
     }
   },
@@ -2997,17 +2984,13 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
-    },
-    "VinilSales.Domain/1.0.0": {
-      "type": "project",
-      "path": "../VinilSales.Domain/VinilSales.Domain.csproj",
-      "msbuildProject": "../VinilSales.Domain/VinilSales.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Microsoft.NETCore.App >= 2.1.0",
-      "VinilSales.Domain >= 1.0.0"
+      "C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\Vinil.Repository.Domain.csproj",
+      "Microsoft.EntityFrameworkCore.InMemory >= 2.2.4",
+      "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
   "packageFolders": {
@@ -3018,11 +3001,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj",
-      "projectName": "Vinil.Repository.Domain",
-      "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj",
+      "projectUniqueName": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository\\VinilSales.Repository.csproj",
+      "projectName": "VinilSales.Repository",
+      "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository\\VinilSales.Repository.csproj",
       "packagesPath": "C:\\Users\\antonio.clessio\\.nuget\\packages\\",
-      "outputPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\obj\\",
+      "outputPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",
@@ -3043,8 +3026,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj": {
-              "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj"
+            "C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\Vinil.Repository.Domain.csproj": {
+              "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\Vinil.Repository.Domain.csproj"
             }
           }
         }
@@ -3058,6 +3041,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[2.2.4, )"
+          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -3072,5 +3059,16 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\Vinil.Repository.Domain.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\Vinil.Repository.Domain.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

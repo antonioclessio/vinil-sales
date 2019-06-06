@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vinil.Repository.Domain\Vinil.Repository.Domain.csproj" />
+    <ProjectReference Include="..\VinilSales.Repository.Domain\Vinil.Repository.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

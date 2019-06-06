@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinilSales.Application", "V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinilSales.Application.Test", "VinilSales.Application.Test\VinilSales.Application.Test.csproj", "{01D2BB93-1F3F-46C1-98A4-BA10AFCDAC22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinil.Repository", "Vinil.Repository\Vinil.Repository.csproj", "{E24B5720-58F7-434A-A106-CD95ED12682C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinilSales.Repository", "VinilSales.Repository\VinilSales.Repository.csproj", "{E24B5720-58F7-434A-A106-CD95ED12682C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinil.Repository.Domain", "Vinil.Repository.Domain\Vinil.Repository.Domain.csproj", "{721B5ED2-8F3E-4495-B328-6B790BE19851}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinilSales.Repository.Domain", "VinilSales.Repository.Domain\VinilSales.Repository.Domain.csproj", "{721B5ED2-8F3E-4495-B328-6B790BE19851}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
