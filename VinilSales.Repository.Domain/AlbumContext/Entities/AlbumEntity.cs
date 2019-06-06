@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Vinil.Repository.Domain.CoreContext.Base;
+using VinilSales.Repository.Domain.CoreContext.Base;
 
-namespace Vinil.Repository.Domain.AlbumContext.Entities
+namespace VinilSales.Repository.Domain.AlbumContext.Entities
 {
     public class AlbumEntity : BaseEntity
     {

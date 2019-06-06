@@ -1,7 +1,7 @@
 ﻿using System;
 using VinilSales.Domain.CoreContext.Enum;
 
-namespace Vinil.Repository.Domain.CoreContext.Base
+namespace VinilSales.Repository.Domain.CoreContext.Base
 {
     public abstract class BaseEntity
     {

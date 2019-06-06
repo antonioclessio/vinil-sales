@@ -760,33 +760,6 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "Vinil.Repository/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.InMemory": "2.2.4",
-          "Vinil.Repository.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Vinil.Repository.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Vinil.Repository.dll": {}
-        }
-      },
-      "Vinil.Repository.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "VinilSales.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Vinil.Repository.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Vinil.Repository.Domain.dll": {}
-        }
-      },
       "VinilSales.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -798,6 +771,33 @@
         },
         "runtime": {
           "bin/placeholder/VinilSales.Domain.dll": {}
+        }
+      },
+      "VinilSales.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": "2.2.4",
+          "VinilSales.Repository.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VinilSales.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VinilSales.Repository.dll": {}
+        }
+      },
+      "VinilSales.Repository.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "VinilSales.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/VinilSales.Repository.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VinilSales.Repository.Domain.dll": {}
         }
       }
     }
@@ -3047,29 +3047,29 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "Vinil.Repository/1.0.0": {
-      "type": "project",
-      "path": "../Vinil.Repository/Vinil.Repository.csproj",
-      "msbuildProject": "../Vinil.Repository/Vinil.Repository.csproj"
-    },
-    "Vinil.Repository.Domain/1.0.0": {
-      "type": "project",
-      "path": "../Vinil.Repository.Domain/Vinil.Repository.Domain.csproj",
-      "msbuildProject": "../Vinil.Repository.Domain/Vinil.Repository.Domain.csproj"
-    },
     "VinilSales.Domain/1.0.0": {
       "type": "project",
       "path": "../VinilSales.Domain/VinilSales.Domain.csproj",
       "msbuildProject": "../VinilSales.Domain/VinilSales.Domain.csproj"
+    },
+    "VinilSales.Repository/1.0.0": {
+      "type": "project",
+      "path": "../VinilSales.Repository/VinilSales.Repository.csproj",
+      "msbuildProject": "../VinilSales.Repository/VinilSales.Repository.csproj"
+    },
+    "VinilSales.Repository.Domain/1.0.0": {
+      "type": "project",
+      "path": "../VinilSales.Repository.Domain/VinilSales.Repository.Domain.csproj",
+      "msbuildProject": "../VinilSales.Repository.Domain/VinilSales.Repository.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "MediatR >= 7.0.0",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Vinil.Repository >= 1.0.0",
-      "Vinil.Repository.Domain >= 1.0.0",
-      "VinilSales.Domain >= 1.0.0"
+      "VinilSales.Domain >= 1.0.0",
+      "VinilSales.Repository >= 1.0.0",
+      "VinilSales.Repository.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3105,14 +3105,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj": {
-              "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj"
-            },
-            "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj": {
-              "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj"
-            },
             "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj": {
               "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj"
+            },
+            "C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\VinilSales.Repository.Domain.csproj": {
+              "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository.Domain\\VinilSales.Repository.Domain.csproj"
+            },
+            "C:\\Pessoal\\vinil-sales\\VinilSales.Repository\\VinilSales.Repository.csproj": {
+              "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Repository\\VinilSales.Repository.csproj"
             }
           }
         }

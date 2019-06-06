@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Vinil.Repository.Domain.AlbumContext.Entities;
+using VinilSales.Repository.Domain.AlbumContext.Entities;
 
-namespace Vinil.Repository.AlbumContext.DbContexts
+namespace VinilSales.Repository.AlbumContext.DbContexts
 {
     public class AlbumDbContext : DbContext
     {

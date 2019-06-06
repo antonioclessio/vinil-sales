@@ -1,28 +1,18 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "82bf280aeaa309383db0a5e2f2823d9ea296b6e1"
+    "signature": "86af28a6048c248e9e72654475e138af4d835bb6"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "VinilSales.Application/1.0.0": {
+      "VinilSales.Repository/1.0.0": {
         "dependencies": {
-          "MediatR": "7.0.0",
-          "VinilSales.Domain": "1.0.0",
-          "VinilSales.Repository": "1.0.0",
+          "Microsoft.EntityFrameworkCore.InMemory": "2.2.4",
           "VinilSales.Repository.Domain": "1.0.0"
         },
         "runtime": {
-          "VinilSales.Application.dll": {}
-        }
-      },
-      "MediatR/7.0.0": {
-        "runtime": {
-          "lib/netstandard2.0/MediatR.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.0"
-          }
+          "VinilSales.Repository.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/2.2.4": {
@@ -387,15 +377,6 @@
           "VinilSales.Domain.dll": {}
         }
       },
-      "VinilSales.Repository/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.InMemory": "2.2.4",
-          "VinilSales.Repository.Domain": "1.0.0"
-        },
-        "runtime": {
-          "VinilSales.Repository.dll": {}
-        }
-      },
       "VinilSales.Repository.Domain/1.0.0": {
         "dependencies": {
           "VinilSales.Domain": "1.0.0"
@@ -407,17 +388,10 @@
     }
   },
   "libraries": {
-    "VinilSales.Application/1.0.0": {
+    "VinilSales.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "MediatR/7.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-sgfHxkBsmMlHOD564SnLqTvSbAuGlFiZfc6ybxBSI1wYV/2u+Y5TXtFoIhCISFg5/s/6aMvB338QC2JseHsjTA==",
-      "path": "mediatr/7.0.0",
-      "hashPath": "mediatr.7.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/2.2.4": {
       "type": "package",
@@ -721,11 +695,6 @@
       "hashPath": "system.threading.tasks.4.0.11.nupkg.sha512"
     },
     "VinilSales.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "VinilSales.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

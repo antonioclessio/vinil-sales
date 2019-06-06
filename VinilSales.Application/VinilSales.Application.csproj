@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vinil.Repository.Domain\Vinil.Repository.Domain.csproj" />
-    <ProjectReference Include="..\Vinil.Repository\Vinil.Repository.csproj" />
+    <ProjectReference Include="..\VinilSales.Repository.Domain\VinilSales.Repository.Domain.csproj" />
+    <ProjectReference Include="..\VinilSales.Repository\VinilSales.Repository.csproj" />
     <ProjectReference Include="..\VinilSales.Domain\VinilSales.Domain.csproj" />
   </ItemGroup>
 
