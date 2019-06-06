@@ -1,0 +1,254 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Pessoal\\vinil-sales\\VinilSales.Application\\VinilSales.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj",
+        "projectName": "Vinil.Repository.Domain",
+        "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj",
+        "packagesPath": "C:\\Users\\antonio.clessio\\.nuget\\packages\\",
+        "outputPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\antonio.clessio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj": {
+                "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj",
+        "projectName": "Vinil.Repository",
+        "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj",
+        "packagesPath": "C:\\Users\\antonio.clessio\\.nuget\\packages\\",
+        "outputPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\antonio.clessio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj": {
+                "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Pessoal\\vinil-sales\\VinilSales.Application\\VinilSales.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Pessoal\\vinil-sales\\VinilSales.Application\\VinilSales.Application.csproj",
+        "projectName": "VinilSales.Application",
+        "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Application\\VinilSales.Application.csproj",
+        "packagesPath": "C:\\Users\\antonio.clessio\\.nuget\\packages\\",
+        "outputPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\antonio.clessio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj": {
+                "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository.Domain\\Vinil.Repository.Domain.csproj"
+              },
+              "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj": {
+                "projectPath": "C:\\Pessoal\\vinil-sales\\Vinil.Repository\\Vinil.Repository.csproj"
+              },
+              "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj": {
+                "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj",
+        "projectName": "VinilSales.Domain",
+        "projectPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\VinilSales.Domain.csproj",
+        "packagesPath": "C:\\Users\\antonio.clessio\\.nuget\\packages\\",
+        "outputPath": "C:\\Pessoal\\vinil-sales\\VinilSales.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\antonio.clessio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
