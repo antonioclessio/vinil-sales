@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="AlbumContext\Enum\" />
-    <Folder Include="AlbumContext\EventHandlers\" />
   </ItemGroup>
 
 </Project>
