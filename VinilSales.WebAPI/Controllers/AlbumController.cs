@@ -1,13 +1,17 @@
 ﻿using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using VinilSales.Application.AlbumContext.Queries;
 using VinilSales.WebAPI.Interfaces;
 
 namespace VinilSales.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/albuns")]
     [ApiController]
     public class AlbumController : BaseController, IController
     {
+        public AlbumController(IMediator mediator) : base(mediator) {}
+
         [HttpDelete]
         public async Task<IActionResult> Delete()
         {
@@ -17,7 +21,7 @@ namespace VinilSales.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(new string[] { "value5", "value6" });
+            return CreateActionResponse(true, await _mediator.Send(new GetAlbunsQuery()));
         }
 
         [HttpGet("{key:int}")]
