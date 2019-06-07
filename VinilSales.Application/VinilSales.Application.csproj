@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VinilSales.Repository.Domain\VinilSales.Repository.Domain.csproj" />
-    <ProjectReference Include="..\VinilSales.Repository\VinilSales.Repository.csproj" />
     <ProjectReference Include="..\VinilSales.Domain\VinilSales.Domain.csproj" />
   </ItemGroup>
 
