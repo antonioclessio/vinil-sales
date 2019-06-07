@@ -2,13 +2,13 @@
 
 namespace VinilSales.Application.CoreContext.Base
 {
-    public abstract class BaseHandler
+    public abstract class BaseHandler<TRepository> : BaseSimpleHandler
     {
-        protected IMediator _mediator;
+        protected TRepository _repository;
 
-        public BaseHandler(IMediator mediator)
+        public BaseHandler(IMediator mediator, TRepository repository) : base(mediator)
         {
-            this._mediator = mediator;
+            this._repository = repository;
         }
     }
 }

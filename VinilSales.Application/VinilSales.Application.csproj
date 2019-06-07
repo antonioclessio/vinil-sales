@@ -7,10 +7,12 @@
   <ItemGroup>
     <ProjectReference Include="..\VinilSales.Repository.Domain\VinilSales.Repository.Domain.csproj" />
     <ProjectReference Include="..\VinilSales.Domain\VinilSales.Domain.csproj" />
+    <ProjectReference Include="..\VinilSales.Repository\VinilSales.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

@@ -1,44 +1,45 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VinilSales.Application.AlbumContext.Queries;
+using VinilSales.Application.ClienteContext.Queries;
 using VinilSales.WebAPI.Interfaces;
 
 namespace VinilSales.WebAPI.Controllers
 {
-    [Route("api/albuns")]
-    public class AlbumController : BaseController, IController
+    [Route("api/clientes")]
+    public class ClienteController : BaseController, IController
     {
-        public AlbumController(IMediator mediator) : base(mediator) {}
+        public ClienteController(IMediator mediator) : base(mediator) { }
 
         [HttpDelete]
         public async Task<IActionResult> Delete()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return CreateActionResponse(true, await _mediator.Send(new GetAlbunsQuery()));
+            return CreateActionResponse(true, await _mediator.Send(new GetClientesQuery()));
         }
 
         [HttpGet("{key:int}")]
         public async Task<IActionResult> GetByKey(int key)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         [HttpPost]
         public async Task<IActionResult> Post()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         [HttpPut]
         public async Task<IActionResult> Put(int key)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

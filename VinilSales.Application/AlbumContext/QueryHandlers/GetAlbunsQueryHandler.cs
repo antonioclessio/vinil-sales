@@ -9,7 +9,7 @@ using VinilSales.Application.CoreContext.Base;
 
 namespace VinilSales.Application.AlbumContext.QueryHandlers
 {
-    public class GetAlbunsQueryHandler : BaseHandler, IRequestHandler<GetAlbunsQuery, IEnumerable<GetAlbunsResult>>
+    public class GetAlbunsQueryHandler : BaseSimpleHandler, IRequestHandler<GetAlbunsQuery, IEnumerable<GetAlbunsResult>>
     {
         public GetAlbunsQueryHandler(IMediator mediator) : base(mediator) {}
 

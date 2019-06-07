@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -72,6 +73,8 @@ namespace VinilSales.WebAPI
             assemblies.Add(AppDomain.CurrentDomain.Load("VinilSales.Application"));
 
             services.AddMediatR(assemblies.ToArray());
+
+            Application.Bootstrap.ConfigureDependencyInjection(ref services);
         }
     }
 }

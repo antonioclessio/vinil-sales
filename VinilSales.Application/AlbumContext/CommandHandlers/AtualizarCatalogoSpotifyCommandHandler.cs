@@ -6,12 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using VinilSales.Application.AlbumContext.Commands;
-using VinilSales.Application.AlbumContext.Events;
 using VinilSales.Application.CoreContext.Base;
 
 namespace VinilSales.Application.AlbumContext.CommandHandlers
 {
-    public class AtualizarCatalogoSpotifyCommandHandler : BaseHandler, IRequestHandler<AtualizarCatalogoSpotifyCommand, bool>
+    public class AtualizarCatalogoSpotifyCommandHandler : BaseSimpleHandler, IRequestHandler<AtualizarCatalogoSpotifyCommand, bool>
     {
         public AtualizarCatalogoSpotifyCommandHandler(IMediator mediator) : base(mediator) { }
 

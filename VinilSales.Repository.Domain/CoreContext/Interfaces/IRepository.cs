@@ -1,11 +1,16 @@
-﻿namespace VinilSales.Repository.Domain.CoreContext.Interfaces
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace VinilSales.Repository.Domain.CoreContext.Interfaces
 {
     public interface IRepository<TEntity>
     {
-        bool Remove(int key);
+        Task<bool> Remove(int key);
 
-        bool Save(TEntity model);
+        Task<bool> Save(TEntity model);
 
-        TEntity GetByKeyAsync(int key);
+        Task<IEnumerable<TEntity>> GetAll();
+
+        Task<TEntity> GetByKeyAsync(int key);
     }
 }

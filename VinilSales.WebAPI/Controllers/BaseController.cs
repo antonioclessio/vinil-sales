@@ -4,6 +4,7 @@ using VinilSales.WebAPI.Models.Core;
 
 namespace VinilSales.WebAPI.Controllers
 {
+    [ApiController]
     public abstract class BaseController : ControllerBase
     {
         protected IMediator _mediator;
