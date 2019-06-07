@@ -1,11 +1,13 @@
-﻿using System;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace VinilSales.WebAPI
 {
@@ -65,8 +67,11 @@ namespace VinilSales.WebAPI
 
         private void initDependencyInjection(IServiceCollection services)
         {
-            var assemblies = AppDomain.CurrentDomain.Load("VinilSales.WebAPI");
-            services.AddMediatR(assemblies);
+            var assemblies = new List<Assembly>();
+            assemblies.Add(AppDomain.CurrentDomain.Load("VinilSales.WebAPI"));
+            assemblies.Add(AppDomain.CurrentDomain.Load("VinilSales.Application"));
+
+            services.AddMediatR(assemblies.ToArray());
         }
     }
 }
