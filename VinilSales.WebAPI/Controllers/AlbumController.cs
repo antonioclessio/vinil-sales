@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using VinilSales.Application.AlbumContext.Commands;
 using VinilSales.Application.AlbumContext.Queries;
 using VinilSales.WebAPI.Interfaces;
 
@@ -39,6 +40,12 @@ namespace VinilSales.WebAPI.Controllers
         public async Task<IActionResult> Put(int key)
         {
             throw new System.NotImplementedException();
+        }
+
+        [HttpPost("atualizar-catalogo")]
+        public async Task<IActionResult> PostAtualizarCatalogo()
+        {
+            return CreateActionResponse(true, await _mediator.Send(new AtualizarCatalogoSpotifyCommand()));
         }
     }
 }
