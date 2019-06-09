@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace VinilSales.Application.AlbumContext.Spotify
+namespace VinilSales.Application.SpotifyContext
 {
     public class SpotifyLibrary
     {
@@ -60,7 +60,7 @@ namespace VinilSales.Application.AlbumContext.Spotify
         private HttpClient criarClient()
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri("https://accounts.spotify.com/api/");
+            client.BaseAddress = new Uri(EndpointsConst.BaseURL);
 
             return client;
         }
@@ -68,38 +68,15 @@ namespace VinilSales.Application.AlbumContext.Spotify
         private async void obterAuthToken()
         {
             var client = criarClient();
-            var clientID = "0bc559c060fe4eb2b0bc99e109528566";
-            var clientSecret = "ced17a7405f9472f8ab4d663cb8bd479";
-
-            var basicKey = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes($"{clientID}:{clientSecret}"));
+            var basicKey = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes($"{EndpointsConst.ClientID}:{EndpointsConst.SecretKey}"));
             var basicAuthHeader = new AuthenticationHeaderValue("Basic", basicKey);
             client.DefaultRequestHeaders.Authorization = basicAuthHeader;
 
-            var requestResult = await client.PostAsync("token", new StringContent("grant_type=client_credentials", Encoding.UTF8, "application/x-www-form-urlencoded"));
+            var requestResult = await client.PostAsync(EndpointsConst.Token, new StringContent(EndpointsConst.GrantType, Encoding.UTF8, "application/x-www-form-urlencoded"));
             if (requestResult.IsSuccessStatusCode)
             {
                 _Token = JsonConvert.DeserializeObject<TokenStructure>(await requestResult.Content.ReadAsStringAsync());
             }
-        }
-
-        sealed class TokenStructure
-        {
-            [JsonProperty("access_token")]
-            public string AccessToken { get; private set; }
-
-            [JsonProperty("token_type")]
-            public string TokenType { get; private set; }
-
-            [JsonProperty("expires_in")]
-            public int ExpireMinutes { get; private set; }
-
-            [JsonProperty("scope")]
-            public string Scope { get; private set; }
-        }
-
-        sealed class CatalogoResult
-        {
-            public 
         }
     }
 }

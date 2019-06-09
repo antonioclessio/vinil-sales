@@ -1,15 +1,10 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Newtonsoft.Json;
 using VinilSales.Application.AlbumContext.Commands;
-using VinilSales.Application.AlbumContext.Results;
-using VinilSales.Application.AlbumContext.Spotify;
 using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.SpotifyContext;
 
 namespace VinilSales.Application.AlbumContext.CommandHandlers
 {
@@ -22,8 +17,6 @@ namespace VinilSales.Application.AlbumContext.CommandHandlers
             var token = SpotifyLibrary.Instance.AccessToken;
             return true;
         }
-
-        
 
         private async Task obterAlbuns(HttpClient client)
         {
