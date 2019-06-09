@@ -14,13 +14,8 @@ namespace VinilSales.Application.AlbumContext.CommandHandlers
 
         public async Task<bool> Handle(AtualizarCatalogoSpotifyCommand request, CancellationToken cancellationToken)
         {
-            var token = SpotifyLibrary.Instance.AccessToken;
+            var albunsRock = SpotifyLibrary.Instance.ObterCatalogoRock();
             return true;
-        }
-
-        private async Task obterAlbuns(HttpClient client)
-        {
-
         }
     }
 }

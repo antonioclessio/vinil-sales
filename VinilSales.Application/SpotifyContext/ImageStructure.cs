@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace VinilSales.Application.SpotifyContext
 {
+    [Serializable]
     public class ImageStructure
     {
         [JsonProperty("height")]

@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace VinilSales.Application.SpotifyContext
 {
@@ -35,39 +37,35 @@ namespace VinilSales.Application.SpotifyContext
             }
         }
 
-        public void ObterCatalogoPop()
+        public Task<SeedGenreResult> ObterCatalogoPop()
         {
-
+            var albuns = obterAlbuns(EndpointsConst.Albuns_POP);
+            return albuns;
         }
 
-        public void ObterCatalogoRock()
+        public Task<SeedGenreResult> ObterCatalogoRock()
         {
-
+            var albuns = obterAlbuns(EndpointsConst.Albuns_ROCK);
+            return albuns;
         }
 
-        public void ObterCatalogoClassic()
+        public Task<SeedGenreResult> ObterCatalogoClassic()
         {
-
+            var albuns = obterAlbuns(EndpointsConst.Albuns_Classic);
+            return albuns;
         }
 
-        public void ObterCatalogoMPB()
+        public Task<SeedGenreResult> ObterCatalogoMPB()
         {
-
+            var albuns = obterAlbuns(EndpointsConst.Albuns_MPB);
+            return albuns;
         }
 
         private TokenStructure _Token { get; set; }
 
-        private HttpClient criarClient()
-        {
-            var client = new HttpClient();
-            client.BaseAddress = new Uri(EndpointsConst.BaseURL);
-
-            return client;
-        }
-
         private async void obterAuthToken()
         {
-            var client = criarClient();
+            var client = new HttpClient();
             var basicKey = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes($"{EndpointsConst.ClientID}:{EndpointsConst.SecretKey}"));
             var basicAuthHeader = new AuthenticationHeaderValue("Basic", basicKey);
             client.DefaultRequestHeaders.Authorization = basicAuthHeader;
@@ -77,6 +75,23 @@ namespace VinilSales.Application.SpotifyContext
             {
                 _Token = JsonConvert.DeserializeObject<TokenStructure>(await requestResult.Content.ReadAsStringAsync());
             }
+        }
+
+        private async Task<SeedGenreResult> obterAlbuns(string url)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(EndpointsConst.BaseURL);
+            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {AccessToken}");
+
+            var requestResult = await client.GetAsync(url);
+            if (requestResult.IsSuccessStatusCode)
+            {
+                var content = await requestResult.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<SeedGenreResult>(content);
+                return result;
+            }
+
+            return null;
         }
     }
 }

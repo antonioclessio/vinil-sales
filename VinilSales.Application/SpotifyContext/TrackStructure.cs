@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace VinilSales.Application.SpotifyContext
 {
+    [Serializable]
     public class TrackStructure
     {
 
@@ -46,7 +48,7 @@ namespace VinilSales.Application.SpotifyContext
         public int Popularity { get; set; }
 
         [JsonProperty("preview_url")]
-        public int PreviewURL { get; set; }
+        public string PreviewURL { get; set; }
 
         [JsonProperty("track_number")]
         public int TrackNumber { get; set; }

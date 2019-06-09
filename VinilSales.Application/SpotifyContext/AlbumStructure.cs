@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace VinilSales.Application.SpotifyContext
 {
+    [Serializable]
     public class AlbumStructure
     {
         [JsonProperty("album_type")]
@@ -30,7 +32,7 @@ namespace VinilSales.Application.SpotifyContext
         public string Name { get; set; }
 
         [JsonProperty("release_date")]
-        public int ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
 
         [JsonProperty("release_date_precision")]
         public string ReleaseDatePrecision { get; set; }

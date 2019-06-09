@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace VinilSales.Application.SpotifyContext
 {
+    [Serializable]
     public class ArtistStructure
     {
         [JsonProperty("external_urls")]
