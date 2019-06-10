@@ -68,13 +68,13 @@ namespace VinilSales.WebAPI
 
         private void initDependencyInjection(IServiceCollection services)
         {
+            Application.Bootstrap.ConfigureDependencyInjection(ref services);
+
             var assemblies = new List<Assembly>();
             assemblies.Add(AppDomain.CurrentDomain.Load("VinilSales.WebAPI"));
             assemblies.Add(AppDomain.CurrentDomain.Load("VinilSales.Application"));
 
             services.AddMediatR(assemblies.ToArray());
-
-            Application.Bootstrap.ConfigureDependencyInjection(ref services);
         }
     }
 }
