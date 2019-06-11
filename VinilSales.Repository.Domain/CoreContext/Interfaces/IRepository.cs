@@ -9,7 +9,7 @@ namespace VinilSales.Repository.Domain.CoreContext.Interfaces
 
         Task<bool> Save(TEntity model);
 
-        Task<IEnumerable<TEntity>> GetAll();
+        Task<List<TEntity>> GetAll();
 
         Task<TEntity> GetByKeyAsync(int key);
     }

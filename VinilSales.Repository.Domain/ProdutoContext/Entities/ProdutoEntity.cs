@@ -10,5 +10,14 @@ namespace VinilSales.Repository.Domain.ProdutoContext.Entities
 
         [Required]
         public decimal Preco { get; set; }
+
+        [Required]
+        public string Nome { get; set; }
+
+        [Required]
+        public byte Genero { get; set; }
+
+        [Required]
+        public string Artista { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace VinilSales.Repository.Domain.CoreContext.Base
         }
 
         public DateTime DataHoraCadastro { get; protected set; }
-        public DateTime DataHoraAlteracao { get; set; }
+        public DateTime DataHoraAlteracao { get; protected set; }
         public byte Status { get; protected set; }
         
         public virtual void Ativar()
@@ -24,6 +24,11 @@ namespace VinilSales.Repository.Domain.CoreContext.Base
         public virtual void Inativar()
         {
             this.Status = (byte)(int)Enum.Parse(typeof(DefaultStatusEnum), DEFAULT_STATUS_INATIVO);
+        }
+
+        public void RegistrarAlteracao()
+        {
+            DataHoraAlteracao = DateTime.Now;
         }
 
         public static class Factory

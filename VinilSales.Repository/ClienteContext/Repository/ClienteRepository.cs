@@ -16,7 +16,7 @@ namespace VinilSales.Repository.ClienteContext.Repository
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<ClienteEntity>> GetAll()
+        public Task<List<ClienteEntity>> GetAll()
         {
             throw new System.NotImplementedException();
         }
