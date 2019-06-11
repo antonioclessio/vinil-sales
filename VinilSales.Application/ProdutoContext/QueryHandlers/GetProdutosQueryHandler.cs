@@ -7,8 +7,6 @@ using VinilSales.Application.CoreContext.Base;
 using VinilSales.Application.ProdutoContext.Notifications;
 using VinilSales.Application.ProdutoContext.Queries;
 using VinilSales.Application.ProdutoContext.Results;
-using VinilSales.Application.SpotifyContext;
-using VinilSales.Repository.Domain.CoreContext.Base;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
 
