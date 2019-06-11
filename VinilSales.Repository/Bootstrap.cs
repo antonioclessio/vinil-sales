@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using VinilSales.Repository.ClienteContext.DbContexts;
 using VinilSales.Repository.ProdutoContext.DbContexts;
+using VinilSales.Repository.TabelaCashbackContext.DbContexts;
 
 namespace VinilSales.Repository
 {
@@ -11,6 +12,7 @@ namespace VinilSales.Repository
 
         public static void ConfigureDependencyInjection(ref IServiceCollection services)
         {
+            services.AddDbContext<TabelaCashbackDbContext>(opt => opt.UseInMemoryDatabase(DatabaseName));
             services.AddDbContext<ProdutoDbContext>(opt => opt.UseInMemoryDatabase(DatabaseName));
             services.AddDbContext<ClienteDbContext>(opt => opt.UseInMemoryDatabase(DatabaseName));
         }

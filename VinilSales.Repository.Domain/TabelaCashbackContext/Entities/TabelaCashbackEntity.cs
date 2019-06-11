@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using VinilSales.Repository.Domain.CoreContext.Base;
 
@@ -14,5 +15,7 @@ namespace VinilSales.Repository.Domain.TabelaCashbackContext.Entities
 
         [StringLength(300)]
         public string Observacao { get; set; }
+
+        public virtual List<TabelaCashback_ItemEntity> Itens { get; } = new List<TabelaCashback_ItemEntity>();
     }
 }

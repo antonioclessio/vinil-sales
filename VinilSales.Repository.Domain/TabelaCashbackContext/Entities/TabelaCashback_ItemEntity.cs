@@ -14,7 +14,7 @@ namespace VinilSales.Repository.Domain.TabelaCashbackContext.Entities
 
         [Required]
         [StringLength(50)]
-        public string Genero { get; set; }
+        public byte Genero { get; set; }
 
         [Required]
         public decimal Domingo { get; set; }
