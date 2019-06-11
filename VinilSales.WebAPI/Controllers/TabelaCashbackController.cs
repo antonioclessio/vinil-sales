@@ -5,12 +5,13 @@ using VinilSales.Application.TabelaCashbackContext.Queries;
 
 namespace VinilSales.WebAPI.Controllers
 {
-    [Route("api/tabela-cashback")]
+    [Route("api/cashback")]
     public class TabelaCashbackController : BaseController
     {
         public TabelaCashbackController(IMediator mediator) : base(mediator) { }
 
         [HttpGet]
+        [Route("tabela-vigente")]
         public async Task<IActionResult> GetVigente()
         {
             var result = await _mediator.Send(new GetVigenteQuery());
