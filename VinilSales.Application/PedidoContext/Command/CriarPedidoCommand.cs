@@ -3,9 +3,9 @@ using VinilSales.Domain.ProdutoContext.Enum;
 
 namespace VinilSales.Application.PedidoContext.Command
 {
-    public class RealizarPedidoCommand : IRequest<bool>
+    public class CriarPedidoCommand : IRequest<bool>
     {
-        public RealizarPedidoCommand(int idCliente, int idProduto, int quantidade)
+        public CriarPedidoCommand(int idCliente, int idProduto, int quantidade)
         {
             this.IdCliente = idCliente;
             this.IdProduto = idProduto;

@@ -8,5 +8,6 @@ namespace VinilSales.Repository.PedidoContext.DbContexts
         public PedidoDbContext(DbContextOptions<PedidoDbContext> options) : base(options) { }
 
         public DbSet<PedidoEntity> Pedido { get; set; }
+        public DbSet<Pedido_ItemEntity> Pedido_Item { get; set; }
     }
 }
