@@ -10,6 +10,7 @@ namespace VinilSales.Repository.Domain.CoreContext.Base
 
         public BaseEntity()
         {
+            DataHoraCadastro = DateTime.Now;
             Ativar();
         }
 
