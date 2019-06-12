@@ -3,7 +3,7 @@ using VinilSales.Domain.CoreContext.Interfaces;
 
 namespace VinilSales.Domain.CoreContext.ValueObjects
 {
-    public class CPF : IValueObjects
+    public struct CPF : IValueObjects
     {
         private string _value;
 
@@ -12,7 +12,22 @@ namespace VinilSales.Domain.CoreContext.ValueObjects
             this._value = value;
         }
 
-        public string CPFFormatado
+        public static implicit operator CPF (string value)
+        {
+            return new CPF(value);
+        }
+
+        public static bool operator ==(CPF value1, CPF value2)
+        {
+            return value1._value.Equals(value2._value);
+        }
+
+        public static bool operator !=(CPF value1, CPF value2)
+        {
+            return !(value1._value.Equals(value2._value));
+        }
+
+        public string Formatado
         {
             get
             {
@@ -67,6 +82,11 @@ namespace VinilSales.Domain.CoreContext.ValueObjects
         public override string ToString()
         {
             return _value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return _value.Equals(((CPF)obj)._value);
         }
     }
 }

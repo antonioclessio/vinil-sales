@@ -5,12 +5,12 @@ namespace VinilSales.Repository.Domain.CoreContext.Interfaces
 {
     public interface IRepository<TEntity>
     {
-        Task<bool> Remove(int key);
+        Task<bool> Remover(int key);
 
-        Task<bool> Save(TEntity model);
+        Task<bool> Salvar(TEntity model);
 
-        Task<List<TEntity>> GetAll();
+        Task<List<TEntity>> ObterTodos();
 
-        Task<TEntity> GetByKeyAsync(int key);
+        Task<TEntity> ObterPorId(int id);
     }
 }

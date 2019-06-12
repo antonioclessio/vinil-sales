@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using VinilSales.Domain.CoreContext.ValueObjects;
 using VinilSales.Repository.ClienteContext.DbContexts;
 using VinilSales.Repository.CoreContext.Base;
 using VinilSales.Repository.Domain.ClienteContext.Entities;
@@ -9,24 +12,53 @@ namespace VinilSales.Repository.ClienteContext.Repository
 {
     public class ClienteRepository : BaseRepository<ClienteDbContext>, IClienteRepository
     {
-        public ClienteRepository(ClienteDbContext context) : base(context) {}
-
-        public Task<ClienteEntity> GetByKeyAsync(int key)
+        public ClienteRepository(ClienteDbContext context)
+            : base(context)
         {
-            throw new System.NotImplementedException();
+            adicionarDadosMock();
         }
 
-        public Task<List<ClienteEntity>> GetAll()
+        private void adicionarDadosMock()
         {
-            throw new System.NotImplementedException();
+            if (_dbContext.Cliente.ToList().Count() > 0) { return; }
+
+            _dbContext.Cliente.Add(new ClienteEntity
+            {
+                IdCliente = 1,
+                CPF = "22622492880",
+                Nome = "Antônio Cléssio"
+            });
+
+            _dbContext.SaveChanges();
         }
 
-        public Task<bool> Remove(int key)
+        public Task<ClienteEntity> ObterPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return Task.FromResult(_dbContext.Cliente.FirstOrDefault(a => a.IdCliente == id));
         }
 
-        public Task<bool> Save(ClienteEntity model)
+        public Task<ClienteEntity> ObterPorCPF(CPF cpf)
+        {
+            return Task.FromResult(_dbContext.Cliente.FirstOrDefault(a => a.CPF == cpf));
+        }
+
+        public Task<List<ClienteEntity>> ObterTodos()
+        {
+            var result = _dbContext.Cliente.ToList();
+            return Task.FromResult(result);
+        }
+
+        public Task<bool> Remover(int key)
+        {
+            var entity = _dbContext.Cliente.FirstOrDefault(a => a.IdCliente == key);
+            if (entity == null) return Task.FromResult(false);
+
+            _dbContext.Cliente.Remove(entity);
+
+            return Task.FromResult(_dbContext.SaveChanges() > 0);
+        }
+
+        public Task<bool> Salvar(ClienteEntity model)
         {
             if (model.IdCliente == 0)
             {
@@ -40,12 +72,16 @@ namespace VinilSales.Repository.ClienteContext.Repository
 
         private bool Inserir(ClienteEntity model)
         {
-            return false;
+            _dbContext.Cliente.Add(model);
+            return _dbContext.SaveChanges() > 0;
         }
 
         private bool Atualizar(ClienteEntity model)
         {
-            return false;
+            model.RegistrarAlteracao();
+
+            _dbContext.Entry(model).State = EntityState.Modified;
+            return _dbContext.SaveChanges() > 0;
         }
     }
 }

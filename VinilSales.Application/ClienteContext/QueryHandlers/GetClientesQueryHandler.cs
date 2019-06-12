@@ -25,7 +25,7 @@ namespace VinilSales.Application.ClienteContext.QueryHandlers
 
         public async Task<IEnumerable<GetClientesResult>> Handle(GetClientesQuery request, CancellationToken cancellationToken)
         {
-            var result = await _repository.GetAll();
+            var result = await _repository.ObterTodos();
             return _mapper.Map<List<GetClientesResult>>(result);
         }
     }

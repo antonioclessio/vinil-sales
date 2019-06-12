@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using VinilSales.Application.ClienteContext.Queries;
+using VinilSales.Domain.CoreContext.ValueObjects;
 using VinilSales.WebAPI.Interfaces;
 
 namespace VinilSales.WebAPI.Controllers
@@ -25,9 +26,16 @@ namespace VinilSales.WebAPI.Controllers
         }
 
         [HttpGet("{key:int}")]
-        public async Task<IActionResult> GetByKey(int key)
+        public async Task<IActionResult> GetByKey([FromRoute] int key)
         {
-            throw new NotImplementedException();
+            return CreateActionResponse(true, await _mediator.Send(new GetClienteQuery(key)));
+        }
+
+        [HttpGet]
+        [Route("cpf")]
+        public async Task<IActionResult> GetByCPF([FromQuery] string cpf)
+        {
+            return CreateActionResponse(true, await _mediator.Send(new GetClienteQuery(cpf)));
         }
 
         [HttpPost]

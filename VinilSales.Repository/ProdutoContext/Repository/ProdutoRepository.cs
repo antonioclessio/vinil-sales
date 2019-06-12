@@ -13,26 +13,25 @@ namespace VinilSales.Repository.ProdutoContext.Repository
     {
         public ProdutoRepository(ProdutoDbContext context) : base(context) { }
 
-        public Task<List<ProdutoEntity>> GetAll()
+        public Task<List<ProdutoEntity>> ObterTodos()
         {
             var result = _dbContext.Produto.ToList();
             return Task.FromResult(result);
         }
 
-        public Task<ProdutoEntity> GetByKeyAsync(int key)
+        public Task<ProdutoEntity> ObterPorId(int key)
         {
             return Task.FromResult(_dbContext.Produto.FirstOrDefault(a => a.IdProduto == key));
         }
 
-        public Task<bool> Remove(int key)
+        public Task<bool> Remover(int key)
         {
             var entity = _dbContext.Produto.FirstOrDefault(a => a.IdProduto == key);
             if (entity == null) return Task.FromResult(false);
 
             _dbContext.Produto.Remove(entity);
-            _dbContext.SaveChanges();
-
-            return Task.FromResult(true);
+            
+            return Task.FromResult(_dbContext.SaveChanges() > 0);
         }
 
         public Task<bool> AddRange(List<ProdutoEntity> list)
@@ -41,7 +40,7 @@ namespace VinilSales.Repository.ProdutoContext.Repository
             return Task.FromResult(_dbContext.SaveChanges() > 0);
         }
 
-        public Task<bool> Save(ProdutoEntity model)
+        public Task<bool> Salvar(ProdutoEntity model)
         {
             if (model.IdProduto == 0)
             {

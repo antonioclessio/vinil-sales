@@ -26,7 +26,7 @@ namespace VinilSales.Application.ProdutoContext.QueryHandlers
 
         public async Task<IEnumerable<GetProdutosResult>> Handle(GetProdutosQuery request, CancellationToken cancellationToken)
         {
-            var listEntity = await _repository.GetAll();
+            var listEntity = await _repository.ObterTodos();
             if (listEntity == null || listEntity.Count == 0)
             {
                 await _mediator.Publish(new ProdutosVaziosNotification());
