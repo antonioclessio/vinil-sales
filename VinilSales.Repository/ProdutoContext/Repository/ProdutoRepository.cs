@@ -34,7 +34,7 @@ namespace VinilSales.Repository.ProdutoContext.Repository
             return Task.FromResult(_dbContext.SaveChanges() > 0);
         }
 
-        public Task<bool> AddRange(List<ProdutoEntity> list)
+        public Task<bool> AdicionarLista(List<ProdutoEntity> list)
         {
             list.ForEach(item => _dbContext.Add(item));
             return Task.FromResult(_dbContext.SaveChanges() > 0);

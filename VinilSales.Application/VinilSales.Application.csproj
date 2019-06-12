@@ -17,4 +17,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="PedidoContext\Results\" />
+    <Folder Include="PedidoContext\QueryHandlers\" />
+    <Folder Include="PedidoContext\Queries\" />
+  </ItemGroup>
+
 </Project>

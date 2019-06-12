@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using VinilSales.Domain.CoreContext.ValueObjects;
 
 namespace VinilSales.Application.ClienteContext.Results
 {
-    public class GetClienteResult
+    public class ObterClienteResult
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }

@@ -12,19 +12,19 @@ using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
 
 namespace VinilSales.Application.ProdutoContext.QueryHandlers
 {
-    public class GetProdutosQueryHandler : BaseHandler<IProdutoRepository>, IRequestHandler<GetProdutosQuery, IEnumerable<GetProdutosResult>>
+    public class ObterProdutosQueryHandler : BaseHandler<IProdutoRepository>, IRequestHandler<ObterProdutosQuery, IEnumerable<ObterProdutosResult>>
     {
-        public GetProdutosQueryHandler(IMediator mediator, IProdutoRepository repository) : base(mediator, repository) { }
+        public ObterProdutosQueryHandler(IMediator mediator, IProdutoRepository repository) : base(mediator, repository) { }
 
         public override void ConfigureMapper()
         {
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ProdutoEntity, GetProdutosResult>();
+                cfg.CreateMap<ProdutoEntity, ObterProdutosResult>();
             }).CreateMapper();
         }
 
-        public async Task<IEnumerable<GetProdutosResult>> Handle(GetProdutosQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ObterProdutosResult>> Handle(ObterProdutosQuery request, CancellationToken cancellationToken)
         {
             var listEntity = await _repository.ObterTodos();
             if (listEntity == null || listEntity.Count == 0)
@@ -32,7 +32,7 @@ namespace VinilSales.Application.ProdutoContext.QueryHandlers
                 await _mediator.Publish(new ProdutosVaziosNotification());
             }
 
-            return _mapper.Map<List<GetProdutosResult>>(listEntity);
+            return _mapper.Map<List<ObterProdutosResult>>(listEntity);
         }
     }
 }

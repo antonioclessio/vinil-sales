@@ -4,7 +4,7 @@ using VinilSales.Application.ProdutoContext.Results;
 
 namespace VinilSales.Application.ProdutoContext.Queries
 {
-    public class GetProdutosQuery : IRequest<IEnumerable<GetProdutosResult>>
+    public class ObterProdutosQuery : IRequest<IEnumerable<ObterProdutosResult>>
     {
     }
 }

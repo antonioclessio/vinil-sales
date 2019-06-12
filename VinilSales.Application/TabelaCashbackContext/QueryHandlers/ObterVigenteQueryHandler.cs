@@ -10,25 +10,25 @@ using VinilSales.Repository.Domain.TabelaCashbackContext.Interfaces;
 
 namespace VinilSales.Application.TabelaCashbackContext.QueryHandlers
 {
-    public class GetVigenteQueryHandler : BaseHandler<ITabelaCashbackRepository>, IRequestHandler<GetVigenteQuery, GetVigenteResult>
+    public class ObterVigenteQueryHandler : BaseHandler<ITabelaCashbackRepository>, IRequestHandler<ObterVigenteQuery, ObterVigenteResult>
     {
-        public GetVigenteQueryHandler(IMediator mediator, ITabelaCashbackRepository repository) : base(mediator, repository) { }
+        public ObterVigenteQueryHandler(IMediator mediator, ITabelaCashbackRepository repository) : base(mediator, repository) { }
 
         public override void ConfigureMapper()
         {
             _mapper = new MapperConfiguration(cfg => 
             {
-                cfg.CreateMap<TabelaCashbackEntity, GetVigenteResult>();
-                cfg.CreateMap<TabelaCashback_ItemEntity, GetVigente_ItensResult>();
+                cfg.CreateMap<TabelaCashbackEntity, ObterVigenteResult>();
+                cfg.CreateMap<TabelaCashback_ItemEntity, ObterVigente_ItensResult>();
             }).CreateMapper();
         }
 
-        public async Task<GetVigenteResult> Handle(GetVigenteQuery request, CancellationToken cancellationToken)
+        public async Task<ObterVigenteResult> Handle(ObterVigenteQuery request, CancellationToken cancellationToken)
         {
             var result = await _repository.ObterTabelaVigente();
             if (result == null) return null;
 
-            return _mapper.Map<GetVigenteResult>(result);
+            return _mapper.Map<ObterVigenteResult>(result);
         }
     }
 }

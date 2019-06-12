@@ -10,19 +10,19 @@ using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
 namespace VinilSales.Application.ClienteContext.QueryHandlers
 {
-    public class GetClienteQueryHandler : BaseHandler<IClienteRepository>, IRequestHandler<GetClienteQuery, GetClienteResult>
+    public class ObterClienteQueryHandler : BaseHandler<IClienteRepository>, IRequestHandler<ObterClienteQuery, ObterClienteResult>
     {
-        public GetClienteQueryHandler(IMediator mediator, IClienteRepository repository) : base(mediator, repository) { }
+        public ObterClienteQueryHandler(IMediator mediator, IClienteRepository repository) : base(mediator, repository) { }
 
         public override void ConfigureMapper()
         {
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ClienteEntity, GetClienteResult>();
+                cfg.CreateMap<ClienteEntity, ObterClienteResult>();
             }).CreateMapper();
         }
 
-        public async Task<GetClienteResult> Handle(GetClienteQuery request, CancellationToken cancellationToken)
+        public async Task<ObterClienteResult> Handle(ObterClienteQuery request, CancellationToken cancellationToken)
         {
             ClienteEntity result = null;
             if (request.Id.HasValue)
@@ -35,7 +35,7 @@ namespace VinilSales.Application.ClienteContext.QueryHandlers
             }
 
             if (result == null) return null;
-            return _mapper.Map<GetClienteResult>(result);
+            return _mapper.Map<ObterClienteResult>(result);
         }
     }
 }

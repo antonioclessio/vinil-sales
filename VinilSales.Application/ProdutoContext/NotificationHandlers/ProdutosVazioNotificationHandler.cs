@@ -46,7 +46,7 @@ namespace VinilSales.Application.ProdutoContext.NotificationHandlers
                 });
             }
 
-            await _repository.AddRange(albunsEntity);
+            await _repository.AdicionarLista(albunsEntity);
         }
         private decimal gerarPreco()
         {

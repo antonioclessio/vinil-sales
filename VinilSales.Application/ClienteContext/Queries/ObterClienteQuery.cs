@@ -4,14 +4,14 @@ using VinilSales.Domain.CoreContext.ValueObjects;
 
 namespace VinilSales.Application.ClienteContext.Queries
 {
-    public class GetClienteQuery : IRequest<GetClienteResult>
+    public class ObterClienteQuery : IRequest<ObterClienteResult>
     {
-        public GetClienteQuery(int? id)
+        public ObterClienteQuery(int? id)
         {
             this.Id = id;
         }
 
-        public GetClienteQuery(CPF cpf)
+        public ObterClienteQuery(CPF cpf)
         {
             this.CPF = cpf;
         }

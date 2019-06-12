@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VinilSales.Application.TabelaCashbackContext.Result
+﻿namespace VinilSales.Application.TabelaCashbackContext.Result
 {
-    public class GetVigente_ItensResult
+    public class ObterVigente_ItensResult
     {
         public string Genero { get; set; }
         public decimal Domingo { get; set; }

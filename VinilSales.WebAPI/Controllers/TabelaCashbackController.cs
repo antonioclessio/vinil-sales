@@ -14,7 +14,7 @@ namespace VinilSales.WebAPI.Controllers
         [Route("tabela-vigente")]
         public async Task<IActionResult> GetVigente()
         {
-            var result = await _mediator.Send(new GetVigenteQuery());
+            var result = await _mediator.Send(new ObterVigenteQuery());
             return CreateActionResponse(true, result);
         }
     }

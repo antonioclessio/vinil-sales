@@ -3,7 +3,7 @@ using VinilSales.Domain.CoreContext.ValueObjects;
 
 namespace VinilSales.Application.ClienteContext.Results
 {
-    public class GetClientesResult
+    public class ObterClientesResult
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }

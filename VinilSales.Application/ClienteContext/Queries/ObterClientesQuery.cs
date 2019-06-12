@@ -4,7 +4,7 @@ using VinilSales.Application.ClienteContext.Results;
 
 namespace VinilSales.Application.ClienteContext.Queries
 {
-    public class GetClientesQuery : IRequest<IEnumerable<GetClientesResult>>
+    public class ObterClientesQuery : IRequest<IEnumerable<ObterClientesResult>>
     {
     }
 }

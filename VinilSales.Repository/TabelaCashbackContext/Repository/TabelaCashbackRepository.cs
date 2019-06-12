@@ -103,5 +103,12 @@ namespace VinilSales.Repository.TabelaCashbackContext.Repository
 
             return Task.FromResult(entity);
         }
+
+        public async Task<TabelaCashback_ItemEntity> ObterTabelaVigentePorGenero(GeneroEnum genero)
+        {
+            var tabelaVigente = await ObterTabelaVigente();
+            var tabela = tabelaVigente.Itens.Find(a => a.Genero == (byte)genero);
+            return tabela;
+        }
     }
 }

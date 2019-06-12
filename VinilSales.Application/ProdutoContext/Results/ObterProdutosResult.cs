@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using VinilSales.Domain.ProdutoContext.Enum;
 
 namespace VinilSales.Application.ProdutoContext.Results
 {
-    public class GetProdutosResult
+    public class ObterProdutosResult
     {
         public int IdProduto { get; set; }
         public string Nome { get; set; }

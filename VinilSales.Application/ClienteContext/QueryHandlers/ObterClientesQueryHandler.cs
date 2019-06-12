@@ -11,22 +11,22 @@ using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
 namespace VinilSales.Application.ClienteContext.QueryHandlers
 {
-    public class GetClientesQueryHandler : BaseHandler<IClienteRepository>, IRequestHandler<GetClientesQuery, IEnumerable<GetClientesResult>>
+    public class ObterClientesQueryHandler : BaseHandler<IClienteRepository>, IRequestHandler<ObterClientesQuery, IEnumerable<ObterClientesResult>>
     {
-        public GetClientesQueryHandler(IMediator mediator, IClienteRepository repository) : base(mediator, repository) { }
+        public ObterClientesQueryHandler(IMediator mediator, IClienteRepository repository) : base(mediator, repository) { }
 
         public override void ConfigureMapper()
         {
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ClienteEntity, GetClientesResult>();
+                cfg.CreateMap<ClienteEntity, ObterClientesResult>();
             }).CreateMapper();
         }
 
-        public async Task<IEnumerable<GetClientesResult>> Handle(GetClientesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ObterClientesResult>> Handle(ObterClientesQuery request, CancellationToken cancellationToken)
         {
             var result = await _repository.ObterTodos();
-            return _mapper.Map<List<GetClientesResult>>(result);
+            return _mapper.Map<List<ObterClientesResult>>(result);
         }
     }
 }

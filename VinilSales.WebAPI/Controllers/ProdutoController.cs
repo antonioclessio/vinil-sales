@@ -22,7 +22,7 @@ namespace VinilSales.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _mediator.Send(new GetProdutosQuery());
+            var result = await _mediator.Send(new ObterProdutosQuery());
             if (result == null || result.Count() == 0)
                 return CreateActionResponse(true, "Os albuns estão sendo carregados, tente novamente em poucos segundos");
 

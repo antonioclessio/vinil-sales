@@ -7,6 +7,6 @@ namespace VinilSales.Repository.Domain.ProdutoContext.Interfaces
 {
     public interface IProdutoRepository : IRepository<ProdutoEntity>
     {
-        Task<bool> AddRange(List<ProdutoEntity> list);
+        Task<bool> AdicionarLista(List<ProdutoEntity> list);
     }
 }
