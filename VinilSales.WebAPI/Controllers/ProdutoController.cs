@@ -1,23 +1,17 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using VinilSales.Application.ProdutoContext.Commands;
 using VinilSales.Application.ProdutoContext.Queries;
-using VinilSales.WebAPI.Interfaces;
+using VinilSales.WebAPI.Models.Produto;
 
 namespace VinilSales.WebAPI.Controllers
 {
     [Route("api/produtos")]
-    public class ProdutoController : BaseController, IController
+    public class ProdutoController : BaseController
     {
         public ProdutoController(IMediator mediator) : base(mediator) {}
-
-        [HttpDelete]
-        public async Task<IActionResult> Delete()
-        {
-            throw new NotImplementedException();
-        }
 
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -30,21 +24,21 @@ namespace VinilSales.WebAPI.Controllers
         }
 
         [HttpGet("{key:int}")]
-        public async Task<IActionResult> GetByKey(int key)
+        public async Task<IActionResult> GetByKey([FromRoute] int key)
         {
-            throw new NotImplementedException();
+            return CreateActionResponse(true, await _mediator.Send(new ObterProdutoQuery(key)));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post([FromBody] SalvarProdutoModel model)
         {
-            throw new NotImplementedException();
+            return CreateActionResponse(true, await _mediator.Send(new SalvarProdutoCommand(model.Preco, model.Nome, model.Genero, model.Artista)));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(int key)
+        public async Task<IActionResult> Put([FromRoute] int key, [FromBody] SalvarProdutoModel model)
         {
-            throw new NotImplementedException();
+            return CreateActionResponse(true, await _mediator.Send(new SalvarProdutoCommand(key, model.Preco, model.Nome, model.Genero, model.Artista)));
         }
     }
 }

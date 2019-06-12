@@ -1,23 +1,16 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using VinilSales.Application.ClienteContext.Commands;
 using VinilSales.Application.ClienteContext.Queries;
-using VinilSales.Domain.CoreContext.ValueObjects;
-using VinilSales.WebAPI.Interfaces;
+using VinilSales.WebAPI.Models.Cliente;
 
 namespace VinilSales.WebAPI.Controllers
 {
     [Route("api/clientes")]
-    public class ClienteController : BaseController, IController
+    public class ClienteController : BaseController
     {
         public ClienteController(IMediator mediator) : base(mediator) { }
-
-        [HttpDelete]
-        public async Task<IActionResult> Delete()
-        {
-            throw new NotImplementedException();
-        }
 
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -39,15 +32,15 @@ namespace VinilSales.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post([FromBody] SalvarClienteModel model)
         {
-            throw new NotImplementedException();
+            return CreateActionResponse(true, await _mediator.Send(new SalvarClienteCommand(model.Nome, model.CPF)));
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(int key)
+        public async Task<IActionResult> Put([FromRoute] int key, [FromBody] SalvarClienteModel model)
         {
-            throw new NotImplementedException();
+            return CreateActionResponse(true, await _mediator.Send(new SalvarClienteCommand(key, model.Nome, model.CPF)));
         }
     }
 }

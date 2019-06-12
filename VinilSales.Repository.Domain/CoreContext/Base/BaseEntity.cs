@@ -32,6 +32,11 @@ namespace VinilSales.Repository.Domain.CoreContext.Base
             DataHoraAlteracao = DateTime.Now;
         }
 
+        public virtual bool IsValid()
+        {
+            return true;
+        }
+
         public static class Factory
         {
             public static T CreateInstance<T>() where T : BaseEntity

@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using VinilSales.Repository.CoreContext.Base;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
@@ -19,18 +22,45 @@ namespace VinilSales.Repository.PedidoContext.Repository
             return Task.FromResult(_dbContext.SaveChanges() > 0);
         }
 
-        public Task<bool> Finalizar(int idPedido)
+        public async Task<bool> FinalizarPedido(int idPedido)
         {
-            return Task.FromResult(_dbContext.SaveChanges() > 0);
+            var entity = await ObterPorId(idPedido);
+            _dbContext.Entry(entity).State = EntityState.Modified;
+
+            entity.Finalizar();
+
+            return _dbContext.SaveChanges() > 0;
         }
 
-        public Task<bool> Salvar(PedidoEntity model)
+        public Task<bool> CriarPedido(PedidoEntity model)
         {
             _dbContext.Add(model);
 
             model.Itens.ForEach(item => _dbContext.Add(item));
 
             return Task.FromResult(_dbContext.SaveChanges() > 0);
+        }
+
+        public Task<PedidoEntity> ObterPorId(int idPedido)
+        {
+            var entity = _dbContext.Pedido.FirstOrDefault(a => a.IdPedido == idPedido);
+            return Task.FromResult(entity);
+        }
+
+        public Task<List<PedidoEntity>> ObterPorFiltro(int idCliente)
+        {
+            var listEntity = _dbContext.Pedido.Where(a => a.IdCliente == idCliente).ToList();
+            return Task.FromResult(listEntity);
+        }
+
+        public async Task<bool> CancelarPedido(int idPedido)
+        {
+            var entity = await ObterPorId(idPedido);
+            _dbContext.Entry(entity).State = EntityState.Modified;
+
+            entity.Finalizar();
+
+            return _dbContext.SaveChanges() > 0;
         }
     }
 }

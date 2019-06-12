@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using VinilSales.Repository.Domain.ClienteContext.Entities;
 using VinilSales.Repository.Domain.CoreContext.Base;
 using VinilSales.Repository.Domain.TabelaCashbackContext.Entities;
+using VinilSales.Domain.PedidoContext.Enum;
 
 namespace VinilSales.Repository.Domain.PedidoContext.Entities
 {
@@ -38,11 +39,21 @@ namespace VinilSales.Repository.Domain.PedidoContext.Entities
         #endregion
 
         #region # Metodos
-        public bool IsValid()
+        public override bool IsValid()
         {
             if (Itens.Count == 0) return false;
 
             return true;
+        }
+
+        public void Finalizar()
+        {
+            this.Status = (byte) PedidoStatusEnum.Finalizado;
+        }
+
+        public void Cancelar()
+        {
+            this.Status = (byte)PedidoStatusEnum.Cancelado;
         }
         #endregion
     }

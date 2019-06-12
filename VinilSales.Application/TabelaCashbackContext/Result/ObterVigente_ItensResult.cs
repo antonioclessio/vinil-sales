@@ -2,7 +2,7 @@
 {
     public class ObterVigente_ItensResult
     {
-        public string Genero { get; set; }
+        public byte Genero { get; set; }
         public decimal Domingo { get; set; }
         public decimal Segunda { get; set; }
         public decimal Terca { get; set; }

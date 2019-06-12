@@ -15,8 +15,6 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
         public AdicionarItemAoPedidoCommandHandler(IMediator mediator, IPedidoRepository repository)
             : base(mediator, repository)
         {
-            _mediator = mediator;
-            _repository = repository;
         }
 
         public override void ConfigureMapper()

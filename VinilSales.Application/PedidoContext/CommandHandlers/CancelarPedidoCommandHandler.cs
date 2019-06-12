@@ -7,23 +7,23 @@ using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 
 namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
-    public class FinalizarPedidoCommandHandler : IRequestHandler<FinalizarPedidoCommand, bool>
+    public class CancelarPedidoCommandHandler : IRequestHandler<CancelarPedidoCommand, bool>
     {
         private readonly IMediator _mediator;
         private readonly IPedidoRepository _repository;
 
-        public FinalizarPedidoCommandHandler(IMediator mediator, IPedidoRepository repository)
+        public CancelarPedidoCommandHandler(IMediator mediator, IPedidoRepository repository)
         {
             _mediator = mediator;
             _repository = repository;
         }
 
-        public async Task<bool> Handle(FinalizarPedidoCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CancelarPedidoCommand request, CancellationToken cancellationToken)
         {
-            var result = await _repository.FinalizarPedido(request.IdPedido);
+            var result = await _repository.CancelarPedido(request.IdPedido);
             if (result)
             {
-                await _mediator.Publish(new PedidoFinalizadoNotification(request.IdPedido));
+                await _mediator.Publish(new PedidoCanceladoNotification(request.IdPedido));
             }
             return result;
         }
