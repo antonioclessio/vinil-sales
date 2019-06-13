@@ -4,12 +4,11 @@ namespace VinilSales.Application.PedidoContext.Notification
 {
     public class PedidoFinalizadoNotification : INotification
     {
-        public PedidoFinalizadoNotification(int idCliente, int idPedido, decimal valorPedido, decimal percentualCashback, decimal valorTransacao)
+        public PedidoFinalizadoNotification(int idCliente, int idPedido, decimal valorPedido, decimal valorTransacao)
         {
             this.IdCliente = idCliente;
             this.IdPedido = idPedido;
             this.ValorPedido = valorPedido;
-            this.PercentualCashback = percentualCashback;
             this.ValorPedido = valorTransacao;
         }
 
@@ -18,8 +17,6 @@ namespace VinilSales.Application.PedidoContext.Notification
         public int IdPedido { get; set; }
 
         public decimal ValorPedido { get; set; }
-
-        public decimal PercentualCashback { get; set; }
 
         public decimal ValorTransacao { get; set; }
     }

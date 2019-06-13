@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace VinilSales.Repository.Domain.PedidoContext.Entities
 {
@@ -22,6 +19,12 @@ namespace VinilSales.Repository.Domain.PedidoContext.Entities
 
         [Required]
         public int Quantidade { get; set; }
+
+        [Required]
+        public decimal PercentualCashback { get; set; }
+
+        [Required]
+        public decimal ValorCashback { get { return ValorUnitario * (PercentualCashback / 100); } }
 
         #region # Foreign Key
         [ForeignKey("IdPedido")]

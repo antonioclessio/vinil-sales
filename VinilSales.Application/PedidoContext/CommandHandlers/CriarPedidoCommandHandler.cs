@@ -11,6 +11,7 @@ using VinilSales.Repository.Domain.PedidoContext.Entities;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 using System;
 using VinilSales.Application.PedidoContext.Notification;
+using VinilSales.Application.TabelaCashbackContext.Result;
 
 namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
@@ -28,16 +29,25 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             _mapper = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<CriarPedidoCommand, PedidoEntity>();
+                cfg.CreateMap<CriarPedido_ItemCommand, Pedido_ItemEntity>();
             }).CreateMapper();
         }
 
         public async Task<bool> Handle(CriarPedidoCommand request, CancellationToken cancellationToken)
         {
-            var novoPedido = _mapper.Map<PedidoEntity>(request);
-            var dadosCashback = await obterValorCashback(request.IdProduto);
+            var tabelaCashbackVigente = await _mediator.Send(new ObterVigenteQuery());
 
-            novoPedido.IdTabelaCashback = dadosCashback.Item1;
-            novoPedido.PercentualCashback = dadosCashback.Item2;
+            var novoPedido = _mapper.Map<PedidoEntity>(request);
+            novoPedido.IdTabelaCashback = tabelaCashbackVigente.IdTabelaCashback;
+
+            request.Itens.ForEach(item =>
+            {
+                var valoresProduto = calcularValoresProduto(tabelaCashbackVigente, item.IdProduto);
+                var novoItem = _mapper.Map<Pedido_ItemEntity>(item);
+                novoItem.ValorUnitario = valoresProduto.ValorUnitario;
+                novoItem.PercentualCashback = valoresProduto.PercentualCashback;
+                novoPedido.Itens.Add(novoItem);
+            });
 
             var result = await _repository.CriarPedido(novoPedido);
             if (result > 0)
@@ -48,10 +58,9 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             return true;
         }
 
-        private async Task<Tuple<int, decimal>> obterValorCashback(int idProduto)
+        private ValoresProduto calcularValoresProduto(ObterVigenteResult tabelaCashbackVigente, int idProduto)
         {
-            var produtoEntity = await _mediator.Send(new ObterProdutoQuery(idProduto));
-            var tabelaCashbackVigente = await _mediator.Send(new ObterVigenteQuery());
+            var produtoEntity = _mediator.Send(new ObterProdutoQuery(idProduto)).Result;
             var tabelaCashbackItens = tabelaCashbackVigente.Itens.Find(a => a.Genero == (byte)produtoEntity.GeneroEnum);
 
             decimal valorCashback = 0;
@@ -67,7 +76,17 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
                 case DayOfWeek.Saturday: valorCashback = tabelaCashbackItens.Sabado; break;
             }
 
-            return new Tuple<int, decimal>(tabelaCashbackVigente.IdTabelaCashback, valorCashback);
+            return new ValoresProduto
+            {
+                ValorUnitario = produtoEntity.Preco,
+                PercentualCashback = valorCashback
+            };
+        }
+
+        private class ValoresProduto
+        {
+            public decimal ValorUnitario { get; set; }
+            public decimal PercentualCashback { get; set; }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -45,7 +46,10 @@ namespace VinilSales.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SalvarPedidoModel model)
         {
-            return CreateActionResponse(true, await _mediator.Send(new CriarPedidoCommand(model.IdCliente, model.IdProduto, model.Quantidade)));
+            List<CriarPedido_ItemCommand> itens = new List<CriarPedido_ItemCommand>();
+            model.Itens.ForEach(item => itens.Add(new CriarPedido_ItemCommand(item.IdPedido, item.IdProduto, item.Quantidade)));
+
+            return CreateActionResponse(true, await _mediator.Send(new CriarPedidoCommand(model.IdCliente, itens)));
         }
 
         [HttpPut]

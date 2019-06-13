@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Linq;
+using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using VinilSales.Application.PedidoContext.Command;
@@ -24,8 +25,8 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             if (result)
             {
                 var pedido = await _repository.ObterPorId(request.IdPedido);
-                var valorTransacao = pedido.ValorPedido * (pedido.PercentualCashback / 100);
-                await _mediator.Publish(new PedidoFinalizadoNotification(pedido.IdCliente, pedido.IdPedido, pedido.ValorPedido, pedido.PercentualCashback, valorTransacao));
+                var valorTransacao = pedido.Itens.Sum(a => a.ValorCashback);
+                await _mediator.Publish(new PedidoFinalizadoNotification(pedido.IdCliente, pedido.IdPedido, pedido.ValorPedido, valorTransacao));
             }
             return result;
         }

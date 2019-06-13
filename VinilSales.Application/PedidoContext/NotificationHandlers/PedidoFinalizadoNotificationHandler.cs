@@ -20,7 +20,6 @@ namespace VinilSales.Application.PedidoContext.NotificationHandlers
                 notification.IdCliente, 
                 notification.IdPedido, 
                 notification.ValorPedido, 
-                notification.PercentualCashback, 
                 notification.ValorTransacao));
         }
     }
