@@ -8,5 +8,7 @@ namespace VinilSales.Repository.Domain.ClienteContext.Interfaces
     public interface IClienteRepository : IRepository<ClienteEntity>
     {
         Task<ClienteEntity> ObterPorCPF(CPF cpf);
+
+        Task<bool> RegistrarTransacaoCashback(Cliente_TransacaoEntity model);
     }
 }

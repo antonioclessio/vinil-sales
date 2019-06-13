@@ -10,6 +10,7 @@ using VinilSales.Application.TabelaCashbackContext.Queries;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 using System;
+using VinilSales.Application.PedidoContext.Notification;
 
 namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
@@ -38,7 +39,11 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             novoPedido.IdTabelaCashback = dadosCashback.Item1;
             novoPedido.ValorCashback = dadosCashback.Item2;
 
-            await _repository.CriarPedido(novoPedido);
+            var result = await _repository.CriarPedido(novoPedido);
+            if (result > 0)
+            {
+                await _mediator.Publish(new PedidoCriadoNotification(result));
+            }
 
             return true;
         }

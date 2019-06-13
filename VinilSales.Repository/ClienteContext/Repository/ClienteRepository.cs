@@ -83,5 +83,11 @@ namespace VinilSales.Repository.ClienteContext.Repository
             _dbContext.Entry(model).State = EntityState.Modified;
             return _dbContext.SaveChanges() > 0;
         }
+
+        public Task<bool> RegistrarTransacaoCashback(Cliente_TransacaoEntity model)
+        {
+            _dbContext.Cliente_Transacao.Add(model);
+            return Task.FromResult(_dbContext.SaveChanges() > 0);
+        }
     }
 }

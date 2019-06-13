@@ -32,13 +32,14 @@ namespace VinilSales.Repository.PedidoContext.Repository
             return _dbContext.SaveChanges() > 0;
         }
 
-        public Task<bool> CriarPedido(PedidoEntity model)
+        public Task<int> CriarPedido(PedidoEntity model)
         {
             _dbContext.Add(model);
 
             model.Itens.ForEach(item => _dbContext.Add(item));
+            _dbContext.SaveChanges();
 
-            return Task.FromResult(_dbContext.SaveChanges() > 0);
+            return Task.FromResult(model.IdPedido);
         }
 
         public Task<PedidoEntity> ObterPorId(int idPedido)

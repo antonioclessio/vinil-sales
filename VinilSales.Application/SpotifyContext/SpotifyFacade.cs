@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace VinilSales.Application.SpotifyContext
 {
-    public class SpotifyLibrary
+    public class SpotifyFacade
     {
-        private static SpotifyLibrary _instance;
-        public static SpotifyLibrary Instance
+        private static SpotifyFacade _instance;
+        public static SpotifyFacade Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new SpotifyLibrary();
+                    _instance = new SpotifyFacade();
                 }
 
                 return _instance;

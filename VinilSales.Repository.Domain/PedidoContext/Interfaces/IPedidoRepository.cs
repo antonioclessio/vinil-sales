@@ -6,7 +6,7 @@ namespace VinilSales.Repository.Domain.PedidoContext.Interfaces
 {
     public interface IPedidoRepository
     {
-        Task<bool> CriarPedido(PedidoEntity model);
+        Task<int> CriarPedido(PedidoEntity model);
         Task<bool> AdicionarItem(Pedido_ItemEntity model);
         Task<bool> FinalizarPedido(int idPedido);
         Task<bool> CancelarPedido(int idPedido);

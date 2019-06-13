@@ -25,10 +25,10 @@ namespace VinilSales.Application.ProdutoContext.NotificationHandlers
         public async Task Handle(ProdutosVaziosNotification notification, CancellationToken cancellationToken)
         {
             var albuns = new Dictionary<GeneroEnum, SeedGenreResult>();
-            albuns.Add(GeneroEnum.Classico, SpotifyLibrary.Instance.ObterCatalogoClassic());
-            albuns.Add(GeneroEnum.Pop, SpotifyLibrary.Instance.ObterCatalogoPop());
-            albuns.Add(GeneroEnum.MPB, SpotifyLibrary.Instance.ObterCatalogoMPB());
-            albuns.Add(GeneroEnum.Rock, SpotifyLibrary.Instance.ObterCatalogoRock());
+            albuns.Add(GeneroEnum.Classico, SpotifyFacade.Instance.ObterCatalogoClassic());
+            albuns.Add(GeneroEnum.Pop, SpotifyFacade.Instance.ObterCatalogoPop());
+            albuns.Add(GeneroEnum.MPB, SpotifyFacade.Instance.ObterCatalogoMPB());
+            albuns.Add(GeneroEnum.Rock, SpotifyFacade.Instance.ObterCatalogoRock());
 
             var albunsEntity = new List<ProdutoEntity>();
 
