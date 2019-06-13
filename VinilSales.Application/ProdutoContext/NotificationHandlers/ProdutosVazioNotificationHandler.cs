@@ -34,6 +34,8 @@ namespace VinilSales.Application.ProdutoContext.NotificationHandlers
 
             foreach (var album in albuns)
             {
+                if (album.Value == null) continue;
+
                 album.Value.Tracks.ForEach(track =>
                 {
                     var novoAlbum = BaseEntity.Factory.CreateInstance<ProdutoEntity>();

@@ -89,5 +89,11 @@ namespace VinilSales.Repository.ClienteContext.Repository
             _dbContext.Cliente_Transacao.Add(model);
             return Task.FromResult(_dbContext.SaveChanges() > 0);
         }
+
+        public Task<List<Cliente_TransacaoEntity>> ObterExtratoPorCliente(int idCliente)
+        {
+            var result = _dbContext.Cliente_Transacao.Where(a => a.IdCliente == idCliente).ToList();
+            return Task.FromResult(result);
+        }
     }
 }

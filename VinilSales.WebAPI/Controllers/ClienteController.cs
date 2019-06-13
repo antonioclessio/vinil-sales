@@ -24,6 +24,12 @@ namespace VinilSales.WebAPI.Controllers
             return CreateActionResponse(true, await _mediator.Send(new ObterClienteQuery(key)));
         }
 
+        [HttpGet("{key:int}/extrato")]
+        public async Task<IActionResult> GetExtrato([FromRoute] int key)
+        {
+            return CreateActionResponse(true, await _mediator.Send(new ObterExtratoPorClienteQuery(key)));
+        }
+
         [HttpGet]
         [Route("cpf")]
         public async Task<IActionResult> GetByCPF([FromQuery] string cpf)
