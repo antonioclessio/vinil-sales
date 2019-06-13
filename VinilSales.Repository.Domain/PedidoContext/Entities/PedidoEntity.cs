@@ -25,7 +25,7 @@ namespace VinilSales.Repository.Domain.PedidoContext.Entities
         public decimal ValorPedido { get { return Itens.Sum(a => a.ValorUnitario * a.Quantidade); } }
 
         [Required]
-        public decimal ValorCashback { get; set; }
+        public decimal PercentualCashback { get; set; }
 
         public virtual List<Pedido_ItemEntity> Itens { get; } = new List<Pedido_ItemEntity>();
         #endregion

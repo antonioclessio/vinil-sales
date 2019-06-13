@@ -37,7 +37,7 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             var dadosCashback = await obterValorCashback(request.IdProduto);
 
             novoPedido.IdTabelaCashback = dadosCashback.Item1;
-            novoPedido.ValorCashback = dadosCashback.Item2;
+            novoPedido.PercentualCashback = dadosCashback.Item2;
 
             var result = await _repository.CriarPedido(novoPedido);
             if (result > 0)

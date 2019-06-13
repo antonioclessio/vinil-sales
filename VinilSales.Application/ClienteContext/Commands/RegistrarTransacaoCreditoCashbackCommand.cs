@@ -1,17 +1,19 @@
 ﻿using MediatR;
 
-namespace VinilSales.Application.PedidoContext.Notification
+namespace VinilSales.Application.ClienteContext.Commands
 {
-    public class PedidoFinalizadoNotification : INotification
+    public class RegistrarTransacaoCreditoCashbackCommand : IRequest<bool>
     {
-        public PedidoFinalizadoNotification(int idCliente, int idPedido, decimal valorPedido, decimal percentualCashback, decimal valorTransacao)
+        public RegistrarTransacaoCreditoCashbackCommand(int idCliente, int idPedido, decimal valorPedido, decimal percentualCashback, decimal valorTransacao)
         {
             this.IdCliente = idCliente;
             this.IdPedido = idPedido;
             this.ValorPedido = valorPedido;
             this.PercentualCashback = percentualCashback;
-            this.ValorPedido = valorTransacao;
+            this.ValorTransacao = valorTransacao;
         }
+
+        public int IdClienteExtrato { get; set; }
 
         public int IdCliente { get; set; }
 

@@ -1,17 +1,27 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using VinilSales.Application.ClienteContext.Commands;
 using VinilSales.Application.PedidoContext.Notification;
 
 namespace VinilSales.Application.PedidoContext.NotificationHandlers
 {
     public class PedidoFinalizadoNotificationHandler : INotificationHandler<PedidoFinalizadoNotification>
     {
-        public Task Handle(PedidoFinalizadoNotification notification, CancellationToken cancellationToken)
+        private readonly IMediator _meditor;
+        public PedidoFinalizadoNotificationHandler(IMediator mediator)
         {
-            // Aqui pode ser implementado um envio de e-mail, registro de log ou qualquer outra ação
+            this._meditor = mediator;
+        }
 
-            return Task.CompletedTask;
+        public async Task Handle(PedidoFinalizadoNotification notification, CancellationToken cancellationToken)
+        {
+            await _meditor.Send(new RegistrarTransacaoCreditoCashbackCommand(
+                notification.IdCliente, 
+                notification.IdPedido, 
+                notification.ValorPedido, 
+                notification.PercentualCashback, 
+                notification.ValorTransacao));
         }
     }
 }

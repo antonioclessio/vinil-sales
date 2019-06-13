@@ -23,7 +23,9 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             var result = await _repository.FinalizarPedido(request.IdPedido);
             if (result)
             {
-                await _mediator.Publish(new PedidoFinalizadoNotification(request.IdPedido));
+                var pedido = await _repository.ObterPorId(request.IdPedido);
+                var valorTransacao = pedido.ValorPedido * (pedido.PercentualCashback / 100);
+                await _mediator.Publish(new PedidoFinalizadoNotification(pedido.IdCliente, pedido.IdPedido, pedido.ValorPedido, pedido.PercentualCashback, valorTransacao));
             }
             return result;
         }

@@ -9,7 +9,7 @@ using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
 namespace VinilSales.Application.ClienteContext.CommandHandlers
 {
-    public class RegistrarTransacaoCashbackCommandHandler : BaseHandler<IClienteRepository>, IRequestHandler<RegistrarTransacaoCashbackCommand, bool>
+    public class RegistrarTransacaoCashbackCommandHandler : BaseHandler<IClienteRepository>, IRequestHandler<RegistrarTransacaoCreditoCashbackCommand, bool>
     {
         public RegistrarTransacaoCashbackCommandHandler(IMediator mediator, IClienteRepository repository)
             : base(mediator, repository)
@@ -21,11 +21,11 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
         {
             _mapper = new MapperConfiguration(cfg => 
             {
-                cfg.CreateMap<RegistrarTransacaoCashbackCommand, Cliente_TransacaoEntity>();
+                cfg.CreateMap<RegistrarTransacaoCreditoCashbackCommand, Cliente_TransacaoEntity>();
             }).CreateMapper();
         }
 
-        public async Task<bool> Handle(RegistrarTransacaoCashbackCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(RegistrarTransacaoCreditoCashbackCommand request, CancellationToken cancellationToken)
         {
             var novaTransacao = _mapper.Map<Cliente_TransacaoEntity>(request);
             if (!novaTransacao.IsValid()) { return false; }
