@@ -30,13 +30,6 @@ namespace VinilSales.WebAPI.Controllers
             return CreateActionResponse(true, await _mediator.Send(new ObterExtratoPorClienteQuery(key)));
         }
 
-        [HttpGet]
-        [Route("cpf")]
-        public async Task<IActionResult> GetByCPF([FromQuery] string cpf)
-        {
-            return CreateActionResponse(true, await _mediator.Send(new ObterClienteQuery(cpf)));
-        }
-
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SalvarClienteModel model)
         {
