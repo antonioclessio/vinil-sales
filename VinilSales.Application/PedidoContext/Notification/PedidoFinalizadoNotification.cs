@@ -9,7 +9,7 @@ namespace VinilSales.Application.PedidoContext.Notification
             this.IdCliente = idCliente;
             this.IdPedido = idPedido;
             this.ValorPedido = valorPedido;
-            this.ValorPedido = valorTransacao;
+            this.ValorTransacao = valorTransacao;
         }
 
         public int IdCliente { get; set; }

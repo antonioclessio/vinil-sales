@@ -7,12 +7,11 @@ namespace VinilSales.Repository.Domain.ClienteContext.Entities
     // Para gerar extrato.
     public class Cliente_TransacaoEntity : BaseEntity
     {
-        public Cliente_TransacaoEntity(int idCliente, int idPedido, decimal valorPedido, decimal percentualCashback, decimal valorTransacao)
+        public Cliente_TransacaoEntity(int idCliente, int idPedido, decimal valorPedido, decimal valorTransacao)
         {
             this.IdCliente = idCliente;
             this.IdPedido = idPedido;
             this.ValorPedido = valorPedido;
-            this.PercentualCashback = percentualCashback;
             this.ValorTransacao = valorTransacao;
             this.TipoTransacao = (byte) TipoTransacaoExtratoEnum.Credito;
         }
@@ -34,8 +33,6 @@ namespace VinilSales.Repository.Domain.ClienteContext.Entities
         public int? IdPedido { get; set; }
 
         public decimal? ValorPedido { get; set; }
-
-        public decimal? PercentualCashback { get; set; }
 
         public byte TipoTransacao { get; private set; }
 

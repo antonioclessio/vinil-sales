@@ -20,7 +20,7 @@ namespace VinilSales.Application.ClienteContext.QueryHandlers
         {
             _mapper = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ClienteEntity, ObterExtratoPorClienteResult>();
+                cfg.CreateMap<Cliente_TransacaoEntity, ObterExtratoPorClienteResult>();
             }).CreateMapper();
         }
 
