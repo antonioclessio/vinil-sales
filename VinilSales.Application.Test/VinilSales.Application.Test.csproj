@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Automoqer" Version="1.2.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Moq" Version="4.11.0" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VinilSales.Application\VinilSales.Application.csproj" />
     <ProjectReference Include="..\VinilSales.Domain\VinilSales.Domain.csproj" />
     <ProjectReference Include="..\VinilSales.Repository.Domain\VinilSales.Repository.Domain.csproj" />
   </ItemGroup>

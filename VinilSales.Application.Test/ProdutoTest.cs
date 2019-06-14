@@ -1,24 +1,32 @@
 using MediatR;
 using Moq;
-using System;
+using VinilSales.Application.ProdutoContext.Queries;
 using Xunit;
 
 namespace VinilSales.Application.Test
 {
     public class ProdutoTest
     {
-        private readonly Mock<IMediator> _mediator;
+        // AAA Pattern
+        // Arrange => Act => Assert
 
-        //public ProdutoTest()
-        //{
-        //    var mock = new AutoMoqer<GetProdutosQuery>().Build();
-        //    _mediator = mock.Param<IMediator>();
-        //}
+        private readonly IMediator _mediator;
+
+        public ProdutoTest()
+        {
+            var mock = new Mock<IMediator>();
+            _mediator = mock.Object;
+        }
 
         [Fact]
         public void Produto_GetProdutos_ListaVazia()
         {
+            // Arrange
+            
 
+            // Act
+
+            // Assert
         }
     }
 }
