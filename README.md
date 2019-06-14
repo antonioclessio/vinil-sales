@@ -5,7 +5,7 @@
 - Para execução do projeto, apenas realizar o git, e compilação básica.
 - É necessário ter o docker instalado, pois o projeto será executado com base na imagem definida no projeto. O Dockerfile está no projeto WebAPI.
 
-## Fluxo para utilização dos endpoints é:
+## Fluxo para utilização dos endpoints principais:
 - Executar o get de produtos que, caso nenhum produto seja encontrado, o spotify será executado para então alimentar a base de dados.
 - Já existe um cliente que será cadastrado.
 - Ao executar o endpoint de pedidos, o sistema irá buscar a tabela de cashback vigente que deve ser utilizada para realizar os cálculos dos percentuais, o cálculo é realizado por produto.
