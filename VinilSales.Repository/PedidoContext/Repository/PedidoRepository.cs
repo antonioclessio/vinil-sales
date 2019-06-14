@@ -44,7 +44,7 @@ namespace VinilSales.Repository.PedidoContext.Repository
 
         public Task<PedidoEntity> ObterPorId(int idPedido)
         {
-            var entity = _dbContext.Pedido.FirstOrDefault(a => a.IdPedido == idPedido);
+            var entity = _dbContext.Pedido.Include(a => a.Itens).FirstOrDefault(a => a.IdPedido == idPedido);
             return Task.FromResult(entity);
         }
 

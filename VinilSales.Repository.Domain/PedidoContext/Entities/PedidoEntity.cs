@@ -22,7 +22,7 @@ namespace VinilSales.Repository.Domain.PedidoContext.Entities
         public int IdTabelaCashback { get; set; }
 
         [Required]
-        public decimal ValorPedido { get { return Itens.Sum(a => a.ValorUnitario * a.Quantidade); } }
+        public decimal ValorPedido { get; set; }
 
         public virtual List<Pedido_ItemEntity> Itens { get; } = new List<Pedido_ItemEntity>();
         #endregion

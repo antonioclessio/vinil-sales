@@ -39,7 +39,7 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
 
             var novoPedido = _mapper.Map<PedidoEntity>(request);
             novoPedido.IdTabelaCashback = tabelaCashbackVigente.IdTabelaCashback;
-
+            
             request.Itens.ForEach(item =>
             {
                 var valoresProduto = calcularValoresProduto(tabelaCashbackVigente, item.IdProduto);
@@ -48,6 +48,8 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
                 novoItem.PercentualCashback = valoresProduto.PercentualCashback;
                 novoPedido.Itens.Add(novoItem);
             });
+
+            novoPedido.ValorPedido = novoPedido.Itens.Sum(a => a.ValorUnitario * a.Quantidade);
 
             var result = await _repository.CriarPedido(novoPedido);
             if (result > 0)

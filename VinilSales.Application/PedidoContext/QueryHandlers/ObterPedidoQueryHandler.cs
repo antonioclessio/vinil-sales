@@ -18,7 +18,12 @@ namespace VinilSales.Application.PedidoContext.QueryHandlers
         {
             _mapper = new MapperConfiguration(cfg => 
             {
-                cfg.CreateMap<PedidoEntity, ObterPedidoResult>();
+                cfg.CreateMap<Pedido_ItemEntity, ObterPedido_ItemResult>();
+                cfg.CreateMap<PedidoEntity, ObterPedidoResult>()
+                   .ForMember(
+                        dest => dest.Itens,
+                        opt => opt.MapFrom(src => src.Itens)
+                    );
             }).CreateMapper();
         }
 
