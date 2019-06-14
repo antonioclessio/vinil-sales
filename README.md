@@ -1,5 +1,6 @@
 # Venda de Discos
-- Foi utilizado Docker, Entity Framework, DotNet Core, AutoMapper e Visual Studio 2019.
+- Foi utilizado Docker, Entity Framework, DotNet Core, AutoMapper, swagger, MediatoR e Visual Studio 2019.
+- Ao executar o projeto, a tela inicial será a documentação gerada pelo Swagger, onde permitirá a utilização dos endpoints diretamente desta tela, para fins de testes.
 
 ## Build
 - Para execução do projeto, apenas realizar o git, e compilação básica.
