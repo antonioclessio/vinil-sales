@@ -26,7 +26,7 @@ namespace VinilSales.Application.ProdutoContext.QueryHandlers
 
         public async Task<IEnumerable<ObterProdutosResult>> Handle(ObterProdutosQuery request, CancellationToken cancellationToken)
         {
-            var listEntity = request.Filtro.Paginacao == null ?
+            var listEntity = request.Filtro.IsEmpty() ?
                              await _repository.ObterTodos() :
                              await _repository.ObterPorFiltro(request.Filtro);
 
