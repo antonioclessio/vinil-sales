@@ -2,7 +2,7 @@
 
 namespace VinilSales.Application.ProdutoContext.Notifications
 {
-    public class ProdutosVaziosNotification : INotification
+    public class ImportarProdutosNotification : INotification
     {
     }
 }

@@ -23,6 +23,8 @@ namespace VinilSales.Application.SpotifyContext
             }
         }
 
+        public bool DadosImportados { get; set; }
+
         public string AccessToken
         {
             get

@@ -13,16 +13,16 @@ using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
 
 namespace VinilSales.Application.ProdutoContext.NotificationHandlers
 {
-    public class ProdutosVazioNotificationHandler : INotificationHandler<ProdutosVaziosNotification>
+    public class ImportarProdutosNotificationHandler : INotificationHandler<ImportarProdutosNotification>
     {
         private IProdutoRepository _repository;
 
-        public ProdutosVazioNotificationHandler(IProdutoRepository repository)
+        public ImportarProdutosNotificationHandler(IProdutoRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(ProdutosVaziosNotification notification, CancellationToken cancellationToken)
+        public async Task Handle(ImportarProdutosNotification notification, CancellationToken cancellationToken)
         {
             var albuns = new Dictionary<GeneroEnum, SeedGenreResult>();
             albuns.Add(GeneroEnum.Classico, SpotifyFacade.Instance.ObterCatalogoClassic());
@@ -49,6 +49,7 @@ namespace VinilSales.Application.ProdutoContext.NotificationHandlers
             }
 
             await _repository.AdicionarLista(albunsEntity);
+            SpotifyFacade.Instance.DadosImportados = true;
         }
         private decimal gerarPreco()
         {

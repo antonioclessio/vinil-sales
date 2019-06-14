@@ -23,8 +23,8 @@ namespace VinilSales.Repository.ProdutoContext.Repository
         public Task<List<ProdutoEntity>> ObterPorFiltro(ProdutoFiltroModel filtro)
         {
             var result = _dbContext.Produto
-                                   .Where(a => 
-                                    filtro.Genero == null || a.Genero == (byte) filtro.Genero
+                                   .Where(a => (filtro.Genero == null || a.Genero == (byte) filtro.Genero)
+                                            && (string.IsNullOrEmpty(filtro.Nome) || a.Nome.ToUpper().Contains(filtro.Nome.ToUpper()))
                                    )
                                    .OrderBy(a => a.Nome)
                                    .Skip(filtro.Paginacao.Pagina * filtro.Paginacao.TotalRegistrosPorPagina)

@@ -18,7 +18,7 @@ namespace VinilSales.WebAPI.Controllers
         public async Task<IActionResult> Get([FromQuery] ProdutoFiltroModel filtro)
         {
             var result = await _mediator.Send(new ObterProdutosQuery(filtro));
-            if (result == null || result.Count() == 0)
+            if (result == null)
                 return CreateActionResponse(true, "Os albuns estão sendo carregados, tente novamente em poucos segundos");
 
             return CreateActionResponse(true, result);

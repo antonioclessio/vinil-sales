@@ -9,6 +9,7 @@ using VinilSales.Application.ProdutoContext.Queries;
 using VinilSales.Application.ProdutoContext.Results;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
+using VinilSales.Application.SpotifyContext;
 
 namespace VinilSales.Application.ProdutoContext.QueryHandlers
 {
@@ -26,16 +27,19 @@ namespace VinilSales.Application.ProdutoContext.QueryHandlers
 
         public async Task<IEnumerable<ObterProdutosResult>> Handle(ObterProdutosQuery request, CancellationToken cancellationToken)
         {
-            var listEntity = request.Filtro.IsEmpty() ?
+            if (SpotifyFacade.Instance.DadosImportados == false)
+            {
+                await _mediator.Publish(new ImportarProdutosNotification());
+                return null;
+            }
+            else
+            {
+                var listEntity = request.Filtro.IsEmpty() ?
                              await _repository.ObterTodos() :
                              await _repository.ObterPorFiltro(request.Filtro);
 
-            if (listEntity == null || listEntity.Count == 0)
-            {
-                await _mediator.Publish(new ProdutosVaziosNotification());
+                return _mapper.Map<List<ObterProdutosResult>>(listEntity);
             }
-
-            return _mapper.Map<List<ObterProdutosResult>>(listEntity);
         }
     }
 }
