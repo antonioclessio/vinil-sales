@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VinilSales.Domain.ProdutoContext.Model;
 using VinilSales.Repository.CoreContext.Base;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
@@ -16,6 +17,15 @@ namespace VinilSales.Repository.ProdutoContext.Repository
         public Task<List<ProdutoEntity>> ObterTodos()
         {
             var result = _dbContext.Produto.ToList();
+            return Task.FromResult(result);
+        }
+
+        public Task<List<ProdutoEntity>> ObterPorFiltro(ProdutoFiltroModel filtro)
+        {
+            var result = _dbContext.Produto
+                                   .Skip(filtro.Paginacao.Pagina * filtro.Paginacao.TotalRegistrosPorPagina)
+                                   .Take(filtro.Paginacao.TotalRegistrosPorPagina)
+                                   .ToList();
             return Task.FromResult(result);
         }
 

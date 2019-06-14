@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using VinilSales.Domain.ProdutoContext.Model;
 
 namespace VinilSales.Repository.Domain.CoreContext.Interfaces
 {

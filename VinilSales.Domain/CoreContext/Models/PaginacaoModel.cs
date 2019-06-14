@@ -2,7 +2,13 @@
 {
     public class PaginacaoModel
     {
-        public int Pagina { get; set; }
-        public int TotalRegistrosPorPagina { get; set; }
+        private int _pagina = 1;
+        public int Pagina
+        {
+            get { return _pagina - 1; }
+            set { _pagina = value; }
+        }
+        
+        public int TotalRegistrosPorPagina { get; set; } = 10;
     }
 }

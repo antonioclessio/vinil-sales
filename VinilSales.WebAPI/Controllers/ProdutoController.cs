@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using VinilSales.Application.ProdutoContext.Commands;
 using VinilSales.Application.ProdutoContext.Queries;
+using VinilSales.Domain.ProdutoContext.Model;
 using VinilSales.WebAPI.Models.Produto;
 
 namespace VinilSales.WebAPI.Controllers
@@ -14,9 +15,9 @@ namespace VinilSales.WebAPI.Controllers
         public ProdutoController(IMediator mediator) : base(mediator) {}
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] ProdutoFiltroModel filtro)
         {
-            var result = await _mediator.Send(new ObterProdutosQuery());
+            var result = await _mediator.Send(new ObterProdutosQuery(filtro));
             if (result == null || result.Count() == 0)
                 return CreateActionResponse(true, "Os albuns estão sendo carregados, tente novamente em poucos segundos");
 
