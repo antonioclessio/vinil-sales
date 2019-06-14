@@ -1,20 +1,18 @@
 ﻿using MediatR;
 using System.Collections.Generic;
 using VinilSales.Application.PedidoContext.Results;
+using VinilSales.Domain.ClienteContext.Models;
+using VinilSales.Domain.PedidoContext.Model;
 
 namespace VinilSales.Application.PedidoContext.Queries
 {
     public class ObterPorFiltroQuery : IRequest<IEnumerable<ObterPorFiltroResult>>
     {
-        public ObterPorFiltroQuery(int idCliente, int pagina, int totalPorPagina)
+        public ObterPorFiltroQuery(PedidoFiltroModel filtro)
         {
-            this.IdCliente = idCliente;
-            this.Pagina = pagina;
-            this.TotalPorPagina = totalPorPagina;
+            this.Filtro = filtro;
         }
 
-        public int IdCliente { get; set; }
-        public int Pagina { get; set; }
-        public int TotalPorPagina { get; set; }
+        public PedidoFiltroModel Filtro { get; set; }
     }
 }

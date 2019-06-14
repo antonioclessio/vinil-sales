@@ -27,7 +27,7 @@ namespace VinilSales.Application.PedidoContext.QueryHandlers
 
         public async Task<IEnumerable<ObterPorFiltroResult>> Handle(ObterPorFiltroQuery request, CancellationToken cancellationToken)
         {
-            var pedidos = await _repository.ObterPorFiltro(request.IdCliente);
+            var pedidos = await _repository.ObterPorFiltro(request.Filtro);
             var result = _mapper.Map<IEnumerable<ObterPorFiltroResult>>(pedidos);
 
             return result;

@@ -5,6 +5,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using VinilSales.Application.PedidoContext.Command;
 using VinilSales.Application.PedidoContext.Queries;
+using VinilSales.Domain.PedidoContext.Model;
+using VinilSales.WebAPI.Models.Core;
 using VinilSales.WebAPI.Models.Pedido;
 
 namespace VinilSales.WebAPI.Controllers
@@ -29,12 +31,9 @@ namespace VinilSales.WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(
-            [FromQuery] int idCliente, 
-            [FromQuery] int pagina, 
-            [FromQuery] int totalPorPagina)
+        public async Task<IActionResult> Get([FromQuery] PedidoFiltroModel filtro)
         {
-            return CreateActionResponse(true, await _mediator.Send(new ObterPorFiltroQuery(idCliente, pagina, totalPorPagina)));
+            return CreateActionResponse(true, await _mediator.Send(new ObterPorFiltroQuery(filtro)));
         }
 
         [HttpGet("{key:int}")]
@@ -50,12 +49,6 @@ namespace VinilSales.WebAPI.Controllers
             model.Itens.ForEach(item => itens.Add(new CriarPedido_ItemCommand(item.IdPedido, item.IdProduto, item.Quantidade)));
 
             return CreateActionResponse(true, await _mediator.Send(new CriarPedidoCommand(model.IdCliente, itens)));
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> AdicionarItem([FromRoute] int key, [FromBody] SalvarPedidoModel model)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VinilSales.Domain.PedidoContext.Model;
 using VinilSales.Repository.CoreContext.Base;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
@@ -48,9 +49,15 @@ namespace VinilSales.Repository.PedidoContext.Repository
             return Task.FromResult(entity);
         }
 
-        public Task<List<PedidoEntity>> ObterPorFiltro(int idCliente)
+        public Task<List<PedidoEntity>> ObterPorFiltro(PedidoFiltroModel filtro)
         {
-            var listEntity = _dbContext.Pedido.Where(a => a.IdCliente == idCliente).ToList();
+            var listEntity = _dbContext.Pedido
+                                       .Where(a =>
+                                           filtro.IdCliente.HasValue == false || a.IdCliente == filtro.IdCliente
+                                       )
+                                       .Skip(filtro.Paginacao.Pagina * filtro.Paginacao.TotalRegistrosPorPagina)
+                                       .Take(filtro.Paginacao.TotalRegistrosPorPagina)
+                                       .ToList();
             return Task.FromResult(listEntity);
         }
 

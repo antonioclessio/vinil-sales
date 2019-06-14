@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using VinilSales.Domain.PedidoContext.Model;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
 
 namespace VinilSales.Repository.Domain.PedidoContext.Interfaces
@@ -11,6 +12,6 @@ namespace VinilSales.Repository.Domain.PedidoContext.Interfaces
         Task<bool> FinalizarPedido(int idPedido);
         Task<bool> CancelarPedido(int idPedido);
         Task<PedidoEntity> ObterPorId(int idPedido);
-        Task<List<PedidoEntity>> ObterPorFiltro(int idCliente);
+        Task<List<PedidoEntity>> ObterPorFiltro(PedidoFiltroModel filtro);
     }
 }
