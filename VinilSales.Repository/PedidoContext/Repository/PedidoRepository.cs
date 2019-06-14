@@ -52,8 +52,9 @@ namespace VinilSales.Repository.PedidoContext.Repository
         public Task<List<PedidoEntity>> ObterPorFiltro(PedidoFiltroModel filtro)
         {
             var listEntity = _dbContext.Pedido
-                                       .Where(a =>
-                                           filtro.IdCliente.HasValue == false || a.IdCliente == filtro.IdCliente
+                                       .Where(a => (filtro.IdCliente.HasValue == false || a.IdCliente == filtro.IdCliente)
+                                                && (filtro.DataInicial.HasValue == false || a.DataHoraCadastro.Date >= filtro.DataInicial.Value.Date)
+                                                && (filtro.DataFinal.HasValue == false || a.DataHoraCadastro.Date <= filtro.DataFinal.Value.Date)
                                        )
                                        .Skip(filtro.Paginacao.Pagina * filtro.Paginacao.TotalRegistrosPorPagina)
                                        .Take(filtro.Paginacao.TotalRegistrosPorPagina)
