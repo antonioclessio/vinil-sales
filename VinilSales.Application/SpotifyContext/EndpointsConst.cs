@@ -7,10 +7,11 @@
         public static string SecretKey = "ced17a7405f9472f8ab4d663cb8bd479";
         public static string GrantType = "grant_type=client_credentials";
 
+        public static int TotalRegistros = 50;
         public static string BaseURL = "https://api.spotify.com/v1/";
-        public static string Albuns_Classic = "recommendations?seed_genres=classical";
-        public static string Albuns_POP = "recommendations?seed_genres=pop";
-        public static string Albuns_ROCK = "recommendations?seed_genres=rock";
-        public static string Albuns_MPB = "recommendations?seed_genres=mpb";
+        public static string Albuns_Classic = $"recommendations?seed_genres=classical&limit={TotalRegistros}";
+        public static string Albuns_POP = $"recommendations?seed_genres=pop&limit={TotalRegistros}";
+        public static string Albuns_ROCK = $"recommendations?seed_genres=rock&limit={TotalRegistros}";
+        public static string Albuns_MPB = $"recommendations?seed_genres=mpb&limit={TotalRegistros}";
     }
 }
