@@ -3,19 +3,21 @@ using AutoMapper;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
 using VinilSales.Application.ProdutoContext.Notifications;
 using VinilSales.Application.ProdutoContext.Queries;
 using VinilSales.Application.ProdutoContext.Results;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
 using VinilSales.Application.SpotifyContext;
+using VinilSales.Application.CoreContext.Interfaces;
 
 namespace VinilSales.Application.ProdutoContext.QueryHandlers
 {
     public class ObterProdutosQueryHandler : BaseHandler<IProdutoRepository>, IRequestHandler<ObterProdutosQuery, IEnumerable<ObterProdutosResult>>
     {
-        public ObterProdutosQueryHandler(IMediator mediator, IProdutoRepository repository) : base(mediator, repository) { }
+        public ObterProdutosQueryHandler(IValidationHandler validation, IMediator mediator, IProdutoRepository repository) 
+            : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()
         {

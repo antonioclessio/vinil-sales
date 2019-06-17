@@ -2,7 +2,8 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.TabelaCashbackContext.Queries;
 using VinilSales.Application.TabelaCashbackContext.Result;
 using VinilSales.Repository.Domain.TabelaCashbackContext.Entities;
@@ -12,7 +13,8 @@ namespace VinilSales.Application.TabelaCashbackContext.QueryHandlers
 {
     public class ObterVigentePorGeneroQueryHandler : BaseHandler<ITabelaCashbackRepository>, IRequestHandler<ObterVigentePorGeneroQuery, ObterVigentePorGeneroResult>
     {
-        public ObterVigentePorGeneroQueryHandler(IMediator mediator, ITabelaCashbackRepository repository) : base(mediator, repository) { }
+        public ObterVigentePorGeneroQueryHandler(IValidationHandler validation, IMediator mediator, ITabelaCashbackRepository repository) 
+            : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()
         {

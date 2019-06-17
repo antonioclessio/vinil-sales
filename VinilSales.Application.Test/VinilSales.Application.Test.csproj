@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Automoqer" Version="1.2.0" />
-    <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Moq" Version="4.11.0" />
     <PackageReference Include="xunit" Version="2.4.0" />

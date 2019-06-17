@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Repository.ClienteContext.Repository;
 using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
@@ -16,6 +18,17 @@ namespace VinilSales.Application
         {
             Repository.Bootstrap.ConfigureDependencyInjection(ref services);
 
+            ConfigureCoreDependencies(ref services);
+            ConfigureBusinessDependencies(ref services);
+        }
+
+        private static void ConfigureCoreDependencies(ref IServiceCollection services)
+        {
+            services.AddScoped<IValidationHandler, ValidationHandler>();
+        }
+
+        private static void ConfigureBusinessDependencies(ref IServiceCollection services)
+        {
             services.AddTransient<IPedidoRepository, PedidoRepository>();
             services.AddTransient<ITabelaCashbackRepository, TabelaCashbackRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();

@@ -2,7 +2,8 @@
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.PedidoContext.Command;
 using VinilSales.Application.ProdutoContext.Queries;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
@@ -12,8 +13,8 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
     public class AdicionarItemAoPedidoCommandHandler : BaseHandler<IPedidoRepository>, IRequestHandler<AdicionarItemAoPedidoCommand, bool>
     {
-        public AdicionarItemAoPedidoCommandHandler(IMediator mediator, IPedidoRepository repository)
-            : base(mediator, repository)
+        public AdicionarItemAoPedidoCommandHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository)
+            : base(validation, mediator, repository)
         {
         }
 

@@ -2,7 +2,8 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.PedidoContext.Queries;
 using VinilSales.Application.PedidoContext.Results;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
@@ -12,7 +13,8 @@ namespace VinilSales.Application.PedidoContext.QueryHandlers
 {
     public class ObterPedidoQueryHandler : BaseHandler<IPedidoRepository>, IRequestHandler<ObterPedidoQuery, ObterPedidoResult>
     {
-        public ObterPedidoQueryHandler(IMediator mediator, IPedidoRepository repository) : base(mediator, repository) { }
+        public ObterPedidoQueryHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository) 
+            : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()
         {

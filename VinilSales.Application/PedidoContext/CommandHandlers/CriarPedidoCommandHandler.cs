@@ -3,7 +3,7 @@ using AutoMapper;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
 using VinilSales.Application.PedidoContext.Command;
 using VinilSales.Application.ProdutoContext.Queries;
 using VinilSales.Application.TabelaCashbackContext.Queries;
@@ -12,13 +12,14 @@ using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 using System;
 using VinilSales.Application.PedidoContext.Notification;
 using VinilSales.Application.TabelaCashbackContext.Result;
+using VinilSales.Application.CoreContext.Interfaces;
 
 namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
     public class CriarPedidoCommandHandler : BaseHandler<IPedidoRepository>, IRequestHandler<CriarPedidoCommand, bool>
     {
-        public CriarPedidoCommandHandler(IMediator mediator, IPedidoRepository repository)
-            : base(mediator, repository)
+        public CriarPedidoCommandHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository)
+            : base(validation, mediator, repository)
         {
             _mediator = mediator;
             _repository = repository;

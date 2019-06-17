@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using VinilSales.Application.ClienteContext.Commands;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Repository.Domain.ClienteContext.Entities;
 using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
@@ -12,8 +12,8 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
 {
     public class SalvarClienteCommandHandler : BaseHandler<IClienteRepository>, IRequestHandler<SalvarClienteCommand, bool>
     {
-        public SalvarClienteCommandHandler(IMediator mediator, IClienteRepository repository)
-            : base(mediator, repository)
+        public SalvarClienteCommandHandler(IValidationHandler validation, IMediator mediator, IClienteRepository repository)
+            : base(validation, mediator, repository)
         {
 
         }
@@ -31,6 +31,9 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
             var novoCliente = _mapper.Map<ClienteEntity>(request);
             if (!novoCliente.IsValid()) return false;
 
+            var clienteExistente = _repository.ObterPorCPF(request.CPF);
+            if (clienteExistente != null) { return false; }
+            
             await _repository.Salvar(novoCliente);
             return true;
         }

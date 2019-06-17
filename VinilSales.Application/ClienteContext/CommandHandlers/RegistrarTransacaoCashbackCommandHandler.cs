@@ -3,7 +3,8 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using VinilSales.Application.ClienteContext.Commands;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Repository.Domain.ClienteContext.Entities;
 using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
@@ -11,8 +12,8 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
 {
     public class RegistrarTransacaoCashbackCommandHandler : BaseHandler<IClienteRepository>, IRequestHandler<RegistrarTransacaoCreditoCashbackCommand, bool>
     {
-        public RegistrarTransacaoCashbackCommandHandler(IMediator mediator, IClienteRepository repository)
-            : base(mediator, repository)
+        public RegistrarTransacaoCashbackCommandHandler(IValidationHandler validation, IMediator mediator, IClienteRepository repository)
+            : base(validation, mediator, repository)
         {
 
         }

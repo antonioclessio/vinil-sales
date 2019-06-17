@@ -2,7 +2,8 @@
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using VinilSales.Application.CoreContext.Base;
+using VinilSales.Application.CoreContext.CommandHandlers;
+using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.ProdutoContext.Commands;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
@@ -11,7 +12,8 @@ namespace VinilSales.Application.ProdutoContext.CommandHandlers
 {
     public class SalvarProdutoCommandHandler : BaseHandler<IProdutoRepository>, IRequestHandler<SalvarProdutoCommand, bool>
     {
-        public SalvarProdutoCommandHandler(IMediator mediator, IProdutoRepository repository) : base(mediator, repository) { }
+        public SalvarProdutoCommandHandler(IValidationHandler validation, IMediator mediator, IProdutoRepository repository)
+            : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()
         {
