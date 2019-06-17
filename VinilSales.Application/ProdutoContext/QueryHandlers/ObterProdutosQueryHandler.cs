@@ -29,6 +29,8 @@ namespace VinilSales.Application.ProdutoContext.QueryHandlers
 
         public async Task<IEnumerable<ObterProdutosResult>> Handle(ObterProdutosQuery request, CancellationToken cancellationToken)
         {
+            _validation.Add("Ocorreu algum erro");
+            return null;
             if (SpotifyFacade.Instance.DadosImportados == false)
             {
                 await _mediator.Publish(new ImportarProdutosNotification());

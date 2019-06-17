@@ -25,9 +25,9 @@ namespace VinilSales.WebAPI.Controllers
         protected IActionResult CreateActionResponse(string message, object data)
         {
             if (_validation.IsEmpty)
-                return Ok(new ActionResultModel(message, data));
+                return Ok(new ActionResultModel(true, message, data));
 
-            return BadRequest(_validation.Messages);
+            return Ok(new ActionResultModel(false, "Ação concluída com erros", _validation.Messages));
         }
     }
 }

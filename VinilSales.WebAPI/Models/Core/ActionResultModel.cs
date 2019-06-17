@@ -2,12 +2,14 @@
 {
     public class ActionResultModel
     {
-        public ActionResultModel(string message, object data)
+        public ActionResultModel(bool success, string message, object data)
         {
+            this.Success = success;
             this.Message = message;
             this.Data = data;
         }
 
+        public bool Success { get; set; }
         public string Message { get; set; }
         public object Data { get; set; }
     }
