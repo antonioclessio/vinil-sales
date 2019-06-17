@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using VinilSales.Application.CoreContext.CommandHandlers;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Application.CoreContext;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Repository.ClienteContext.Repository;
 using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
@@ -24,7 +24,7 @@ namespace VinilSales.Application
 
         private static void ConfigureCoreDependencies(ref IServiceCollection services)
         {
-            services.AddScoped<IValidationHandler, ValidationHandler>();
+            services.AddScoped<IValidationMessage, ValidationMessage>();
         }
 
         private static void ConfigureBusinessDependencies(ref IServiceCollection services)

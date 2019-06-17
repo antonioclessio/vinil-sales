@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using VinilSales.Application.ClienteContext.Commands;
 using VinilSales.Application.ClienteContext.Queries;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.WebAPI.Models.Cliente;
 
 namespace VinilSales.WebAPI.Controllers
@@ -11,7 +11,7 @@ namespace VinilSales.WebAPI.Controllers
     [Route("api/clientes")]
     public class ClienteController : BaseController
     {
-        public ClienteController(IValidationHandler validation, IMediator mediator) : base(validation, mediator) { }
+        public ClienteController(IValidationMessage validation, IMediator mediator) : base(validation, mediator) { }
 
         [HttpGet]
         public async Task<IActionResult> Get()

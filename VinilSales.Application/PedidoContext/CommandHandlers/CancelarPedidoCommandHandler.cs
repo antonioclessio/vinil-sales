@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.PedidoContext.Command;
 using VinilSales.Application.PedidoContext.Notification;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Domain.PedidoContext.Enum;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 
@@ -13,9 +13,9 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
     {
         private readonly IMediator _mediator;
         private readonly IPedidoRepository _repository;
-        private readonly IValidationHandler _validation;
+        private readonly IValidationMessage _validation;
 
-        public CancelarPedidoCommandHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository)
+        public CancelarPedidoCommandHandler(IValidationMessage validation, IMediator mediator, IPedidoRepository repository)
         {
             _validation = validation;
             _mediator = mediator;
@@ -28,6 +28,12 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             if (pedido.StatusEnum == PedidoStatusEnum.Cancelado)
             {
                 _validation.Add("O pedido já está cancelado.");
+                return false;
+            }
+
+            if (pedido.StatusEnum == PedidoStatusEnum.Finalizado)
+            {
+                _validation.Add("O pedido está finalizado.");
                 return false;
             }
 

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 
 namespace VinilSales.Application.CoreContext.CommandHandlers
 {
@@ -10,7 +10,7 @@ namespace VinilSales.Application.CoreContext.CommandHandlers
         protected IMapper _mapper;
 
         public BaseHandler(
-            IValidationHandler validation,
+            IValidationMessage validation,
             IMediator mediator, 
             TRepository repository
             ) : base(validation, mediator)

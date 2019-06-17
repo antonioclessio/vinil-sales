@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace VinilSales.Application.CoreContext.Interfaces
+namespace VinilSales.Domain.CoreContext.Interfaces
 {
-    public interface IValidationHandler
+    public interface IValidationMessage
     {
         bool IsEmpty { get; }
         List<string> Messages { get; }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 
-namespace VinilSales.Application.CoreContext.CommandHandlers
+namespace VinilSales.Application.CoreContext
 {
-    public class ValidationHandler : IValidationHandler
+    public class ValidationMessage : IValidationMessage
     {
         public List<string> Messages { get; }
         public bool IsEmpty
@@ -14,7 +14,7 @@ namespace VinilSales.Application.CoreContext.CommandHandlers
             }
         }
 
-        public ValidationHandler()
+        public ValidationMessage()
         {
             Messages = new List<string>();
         }

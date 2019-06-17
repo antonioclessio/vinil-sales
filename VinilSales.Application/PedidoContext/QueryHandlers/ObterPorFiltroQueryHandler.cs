@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using VinilSales.Application.CoreContext.CommandHandlers;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.PedidoContext.Queries;
 using VinilSales.Application.PedidoContext.Results;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Repository.Domain.PedidoContext.Entities;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 
@@ -14,7 +14,7 @@ namespace VinilSales.Application.PedidoContext.QueryHandlers
 {
     public class ObterPorFiltroQueryHandler : BaseHandler<IPedidoRepository>, IRequestHandler<ObterPorFiltroQuery, IEnumerable<ObterPorFiltroResult>>
     {
-        public ObterPorFiltroQueryHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository) 
+        public ObterPorFiltroQueryHandler(IValidationMessage validation, IMediator mediator, IPedidoRepository repository) 
             : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()

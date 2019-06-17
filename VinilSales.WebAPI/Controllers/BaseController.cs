@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.WebAPI.Models.Core;
 
 namespace VinilSales.WebAPI.Controllers
@@ -9,9 +9,9 @@ namespace VinilSales.WebAPI.Controllers
     public abstract class BaseController : ControllerBase
     {
         protected IMediator _mediator;
-        protected IValidationHandler _validation;
+        protected IValidationMessage _validation;
 
-        public BaseController(IValidationHandler validation, IMediator mediator)
+        public BaseController(IValidationMessage validation, IMediator mediator)
         {
             this._validation = validation;
             this._mediator = mediator;

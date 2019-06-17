@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using VinilSales.Application.ClienteContext.Commands;
 using VinilSales.Application.CoreContext.CommandHandlers;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Repository.Domain.ClienteContext.Entities;
 using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
@@ -12,7 +12,7 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
 {
     public class SalvarClienteCommandHandler : BaseHandler<IClienteRepository>, IRequestHandler<SalvarClienteCommand, bool>
     {
-        public SalvarClienteCommandHandler(IValidationHandler validation, IMediator mediator, IClienteRepository repository)
+        public SalvarClienteCommandHandler(IValidationMessage validation, IMediator mediator, IClienteRepository repository)
             : base(validation, mediator, repository)
         {
 

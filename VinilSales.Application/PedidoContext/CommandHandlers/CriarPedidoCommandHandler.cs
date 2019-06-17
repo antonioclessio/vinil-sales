@@ -12,13 +12,13 @@ using VinilSales.Repository.Domain.PedidoContext.Interfaces;
 using System;
 using VinilSales.Application.PedidoContext.Notification;
 using VinilSales.Application.TabelaCashbackContext.Result;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 
 namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
     public class CriarPedidoCommandHandler : BaseHandler<IPedidoRepository>, IRequestHandler<CriarPedidoCommand, bool>
     {
-        public CriarPedidoCommandHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository)
+        public CriarPedidoCommandHandler(IValidationMessage validation, IMediator mediator, IPedidoRepository repository)
             : base(validation, mediator, repository)
         {
             _mediator = mediator;

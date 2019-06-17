@@ -3,8 +3,8 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using VinilSales.Application.CoreContext.CommandHandlers;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.ProdutoContext.Commands;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
 
@@ -12,7 +12,7 @@ namespace VinilSales.Application.ProdutoContext.CommandHandlers
 {
     public class SalvarProdutoCommandHandler : BaseHandler<IProdutoRepository>, IRequestHandler<SalvarProdutoCommand, bool>
     {
-        public SalvarProdutoCommandHandler(IValidationHandler validation, IMediator mediator, IProdutoRepository repository)
+        public SalvarProdutoCommandHandler(IValidationMessage validation, IMediator mediator, IProdutoRepository repository)
             : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()

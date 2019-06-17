@@ -7,13 +7,13 @@ using VinilSales.Application.ProdutoContext.Queries;
 using VinilSales.Application.ProdutoContext.Results;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 
 namespace VinilSales.Application.ProdutoContext.QueryHandlers
 {
     public class ObterProdutoQueryHandler : BaseHandler<IProdutoRepository>, IRequestHandler<ObterProdutoQuery, ObterProdutoResult>
     {
-        public ObterProdutoQueryHandler(IValidationHandler validation, IMediator mediator, IProdutoRepository repository) 
+        public ObterProdutoQueryHandler(IValidationMessage validation, IMediator mediator, IProdutoRepository repository) 
             : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()

@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.PedidoContext.Command;
 using VinilSales.Application.PedidoContext.Queries;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Domain.PedidoContext.Model;
 using VinilSales.WebAPI.Models.Pedido;
 
@@ -13,7 +13,7 @@ namespace VinilSales.WebAPI.Controllers
     [Route("api/pedidos")]
     public class PedidoController : BaseController
     {
-        public PedidoController(IValidationHandler validation, IMediator mediator) : base(validation, mediator) { }
+        public PedidoController(IValidationMessage validation, IMediator mediator) : base(validation, mediator) { }
 
         [HttpPost]
         [Route("{key:int}/cancelar")]

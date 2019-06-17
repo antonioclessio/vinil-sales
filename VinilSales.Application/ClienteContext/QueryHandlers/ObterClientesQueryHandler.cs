@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using VinilSales.Application.ClienteContext.Queries;
 using VinilSales.Application.ClienteContext.Results;
 using VinilSales.Application.CoreContext.CommandHandlers;
-using VinilSales.Application.CoreContext.Interfaces;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Repository.Domain.ClienteContext.Entities;
 using VinilSales.Repository.Domain.ClienteContext.Interfaces;
 
@@ -14,7 +14,7 @@ namespace VinilSales.Application.ClienteContext.QueryHandlers
 {
     public class ObterClientesQueryHandler : BaseHandler<IClienteRepository>, IRequestHandler<ObterClientesQuery, IEnumerable<ObterClientesResult>>
     {
-        public ObterClientesQueryHandler(IValidationHandler validation, IMediator mediator, IClienteRepository repository) 
+        public ObterClientesQueryHandler(IValidationMessage validation, IMediator mediator, IClienteRepository repository) 
             : base(validation, mediator, repository) { }
 
         public override void ConfigureMapper()

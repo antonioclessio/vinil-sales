@@ -1,15 +1,15 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.TabelaCashbackContext.Queries;
+using VinilSales.Domain.CoreContext.Interfaces;
 
 namespace VinilSales.WebAPI.Controllers
 {
     [Route("api/cashback")]
     public class TabelaCashbackController : BaseController
     {
-        public TabelaCashbackController(IValidationHandler validation, IMediator mediator) : base(validation, mediator) { }
+        public TabelaCashbackController(IValidationMessage validation, IMediator mediator) : base(validation, mediator) { }
 
         [HttpGet]
         [Route("tabela-vigente")]

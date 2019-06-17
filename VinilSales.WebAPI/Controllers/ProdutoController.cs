@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Application.ProdutoContext.Commands;
 using VinilSales.Application.ProdutoContext.Queries;
+using VinilSales.Domain.CoreContext.Interfaces;
 using VinilSales.Domain.ProdutoContext.Model;
 using VinilSales.WebAPI.Models.Produto;
 
@@ -12,7 +12,7 @@ namespace VinilSales.WebAPI.Controllers
     [Route("api/produtos")]
     public class ProdutoController : BaseController
     {
-        public ProdutoController(IValidationHandler validation, IMediator mediator) : base(validation, mediator) {}
+        public ProdutoController(IValidationMessage validation, IMediator mediator) : base(validation, mediator) {}
 
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] ProdutoFiltroModel filtro)

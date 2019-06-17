@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using VinilSales.Application.PedidoContext.Command;
 using VinilSales.Application.PedidoContext.Notification;
 using VinilSales.Repository.Domain.PedidoContext.Interfaces;
-using VinilSales.Application.CoreContext.Interfaces;
 using VinilSales.Domain.PedidoContext.Enum;
+using VinilSales.Domain.CoreContext.Interfaces;
 
 namespace VinilSales.Application.PedidoContext.CommandHandlers
 {
@@ -14,9 +14,9 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
     {
         private readonly IMediator _mediator;
         private readonly IPedidoRepository _repository;
-        private readonly IValidationHandler _validation;
+        private readonly IValidationMessage _validation;
 
-        public FinalizarPedidoCommandHandler(IValidationHandler validation, IMediator mediator, IPedidoRepository repository)
+        public FinalizarPedidoCommandHandler(IValidationMessage validation, IMediator mediator, IPedidoRepository repository)
         {
             _validation = validation;
             _mediator = mediator;
