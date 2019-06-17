@@ -33,8 +33,11 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
             var produtoEntity = await _mediator.Send(new ObterProdutoQuery(request.IdProduto));
             novoItem.ValorUnitario = produtoEntity.Preco;
 
-            if (!novoItem.IsValid())
+            if (novoItem.Invalido)
+            {
+                _validation.AddRange(novoItem.Mensagens);
                 return false;
+            }
 
             await _repository.AdicionarItem(novoItem);
             return true;

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VinilSales.Repository.Domain.CoreContext.Base;
+using VinilSales.Repository.Domain.CoreContext.Entities;
 
 namespace VinilSales.Repository.Domain.TabelaCashbackContext.Entities
 {
@@ -41,5 +41,9 @@ namespace VinilSales.Repository.Domain.TabelaCashbackContext.Entities
         [ForeignKey("IdTabelaCashback")]
         public TabelaCashbackEntity TabelaCashback { get; set; }
         #endregion
+
+        public override void Validacao()
+        {
+        }
     }
 }

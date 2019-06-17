@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using VinilSales.Domain.CoreContext.Enum;
 
-namespace VinilSales.Repository.Domain.CoreContext.Base
+namespace VinilSales.Repository.Domain.CoreContext.Entities
 {
     public abstract class BaseEntity
     {
@@ -32,11 +34,11 @@ namespace VinilSales.Repository.Domain.CoreContext.Base
             DataHoraAlteracao = DateTime.Now;
         }
 
-        public virtual bool IsValid()
-        {
-            return true;
-        }
+        public List<string> Mensagens { get; } = new List<string>();
+        public bool Invalido { get { return Mensagens.Count > 0; } }
+        public abstract void Validacao();
 
+        #region # Factory
         public static class Factory
         {
             public static T CreateInstance<T>() where T : BaseEntity
@@ -52,7 +54,8 @@ namespace VinilSales.Repository.Domain.CoreContext.Base
                 (entity as BaseEntity).DataHoraAlteracao = DateTime.Now; ;
                 (entity as BaseEntity).Status = (int)DefaultStatusEnum.Ativo;
             }
-        }
+        } 
+        #endregion
 
     }
 }

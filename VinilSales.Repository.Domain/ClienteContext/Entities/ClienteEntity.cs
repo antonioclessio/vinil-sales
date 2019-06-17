@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 using VinilSales.Domain.CoreContext.ValueObjects;
-using VinilSales.Repository.Domain.CoreContext.Base;
+using VinilSales.Repository.Domain.CoreContext.Entities;
 
 namespace VinilSales.Repository.Domain.ClienteContext.Entities
 {
@@ -18,5 +15,10 @@ namespace VinilSales.Repository.Domain.ClienteContext.Entities
 
         [Required]
         public CPF CPF { get; set; }
+
+        public override void Validacao()
+        {
+            if (!CPF.Valido()) Mensagens.Add("O CPF informado é inválido");
+        }
     }
 }

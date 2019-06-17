@@ -7,5 +7,6 @@ namespace VinilSales.Application.CoreContext.Interfaces
         bool IsEmpty { get; }
         List<string> Messages { get; }
         void Add(string message);
+        void AddRange(List<string> messages);
     }
 }

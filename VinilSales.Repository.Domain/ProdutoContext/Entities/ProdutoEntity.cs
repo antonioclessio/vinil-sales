@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using VinilSales.Repository.Domain.CoreContext.Base;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using VinilSales.Domain.ProdutoContext.Enum;
+using VinilSales.Repository.Domain.CoreContext.Entities;
 
 namespace VinilSales.Repository.Domain.ProdutoContext.Entities
 {
@@ -19,5 +21,11 @@ namespace VinilSales.Repository.Domain.ProdutoContext.Entities
 
         [Required]
         public string Artista { get; set; }
+
+        public override void Validacao()
+        {
+            if (Preco == 0) Mensagens.Add("O preço do produto é inválido");
+            if (!Enum.TryParse<GeneroEnum>(Genero.ToString(), out _)) Mensagens.Add("O gênero informado é inválido");
+        }
     }
 }

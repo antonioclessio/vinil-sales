@@ -29,7 +29,10 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
         public async Task<bool> Handle(RegistrarTransacaoCreditoCashbackCommand request, CancellationToken cancellationToken)
         {
             var novaTransacao = new Cliente_TransacaoEntity(request.IdCliente, request.IdPedido, request.ValorPedido, request.ValorTransacao);
-            if (!novaTransacao.IsValid()) { return false; }
+            if (novaTransacao.Invalido) {
+                _validation.AddRange(novaTransacao.Mensagens);
+                return false;
+            }
 
             var result = await _repository.RegistrarTransacaoCashback(novaTransacao);
             return result;

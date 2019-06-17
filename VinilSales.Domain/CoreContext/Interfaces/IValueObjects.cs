@@ -2,6 +2,6 @@
 {
     public interface IValueObjects
     {
-        bool isValid();
+        bool Valido();
     }
 }

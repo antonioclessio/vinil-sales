@@ -29,7 +29,11 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
         public async Task<bool> Handle(SalvarClienteCommand request, CancellationToken cancellationToken)
         {
             var novoCliente = _mapper.Map<ClienteEntity>(request);
-            if (!novoCliente.IsValid()) return false;
+            if (novoCliente.Invalido)
+            {
+                _validation.AddRange(novoCliente.Mensagens);
+                return false;
+            }
 
             var clienteExistente = _repository.ObterPorCPF(request.CPF);
             if (clienteExistente != null) { return false; }

@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using VinilSales.Repository.Domain.CoreContext.Entities;
 
 namespace VinilSales.Repository.Domain.PedidoContext.Entities
 {
-    public class Pedido_ItemEntity
+    public class Pedido_ItemEntity : BaseEntity
     {
         [Key]
         public int PedidoItem { get; set; }
@@ -32,12 +33,11 @@ namespace VinilSales.Repository.Domain.PedidoContext.Entities
         #endregion
 
         #region # Metodos
-        public bool IsValid()
+        public override void Validacao()
         {
-            if (Quantidade == 0 || IdPedido == 0 || IdProduto == 0)
-                return false;
-
-            return true;
+            if (Quantidade == 0) Mensagens.Add("A quantidade do pedido deve ser maior que zero");
+            if (IdPedido == 0) Mensagens.Add("O pedido é inválido");
+            if (IdProduto == 0) Mensagens.Add("O produto é inválido");
         }
         #endregion
     }

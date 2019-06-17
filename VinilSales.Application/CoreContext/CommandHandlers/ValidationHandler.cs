@@ -23,5 +23,10 @@ namespace VinilSales.Application.CoreContext.CommandHandlers
         {
             Messages.Add(message);
         }
+
+        public void AddRange(List<string> messages)
+        {
+            Messages.AddRange(messages);
+        }
     }
 }

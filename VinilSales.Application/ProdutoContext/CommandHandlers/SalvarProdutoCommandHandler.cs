@@ -26,7 +26,11 @@ namespace VinilSales.Application.ProdutoContext.CommandHandlers
         public async Task<bool> Handle(SalvarProdutoCommand request, CancellationToken cancellationToken)
         {
             var novoProduto = _mapper.Map<ProdutoEntity>(request);
-            if (!novoProduto.IsValid()) return false;
+            if (novoProduto.Invalido)
+            {
+                _validation.AddRange(novoProduto.Mensagens);
+                return false;
+            }
 
             await _repository.Salvar(novoProduto);
             return true;

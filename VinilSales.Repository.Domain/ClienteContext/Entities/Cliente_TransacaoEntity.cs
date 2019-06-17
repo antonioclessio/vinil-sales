@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using VinilSales.Domain.ClienteContext.Enum;
-using VinilSales.Repository.Domain.CoreContext.Base;
+using VinilSales.Repository.Domain.CoreContext.Entities;
 
 namespace VinilSales.Repository.Domain.ClienteContext.Entities
 {
@@ -40,14 +41,11 @@ namespace VinilSales.Repository.Domain.ClienteContext.Entities
         public decimal ValorTransacao { get; set; }
 
         #region # Metodos
-        public override bool IsValid()
+        public override void Validacao()
         {
-            if (IdPedido.HasValue && (!ValorPedido.HasValue || ValorPedido.Value == 0))
-                return false;
-
-            if (ValorTransacao <= 0) return false;
-
-            return true;
+            if (IdPedido.HasValue && (!ValorPedido.HasValue || ValorPedido.Value == 0)) Mensagens.Add("O pedido relacionado à transação não tem um valor válido.");
+            if (ValorTransacao <= 0) Mensagens.Add("O valor a ser transacionado no cashback é inválido");
+            if (Enum.TryParse<TipoTransacaoExtratoEnum>(TipoTransacao.ToString(), out _)) Mensagens.Add("O tipo de transação informado é inválido.");
         }
         #endregion
     }

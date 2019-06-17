@@ -52,6 +52,12 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
 
             novoPedido.ValorPedido = novoPedido.Itens.Sum(a => a.ValorUnitario * a.Quantidade);
 
+            if (novoPedido.Invalido)
+            {
+                _validation.AddRange(novoPedido.Mensagens);
+                return false;
+            }
+
             var result = await _repository.CriarPedido(novoPedido);
             if (result > 0)
             {

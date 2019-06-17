@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using VinilSales.Application.ProdutoContext.Notifications;
 using VinilSales.Application.SpotifyContext;
 using VinilSales.Domain.ProdutoContext.Enum;
-using VinilSales.Repository.Domain.CoreContext.Base;
+using VinilSales.Repository.Domain.CoreContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Entities;
 using VinilSales.Repository.Domain.ProdutoContext.Interfaces;
 
