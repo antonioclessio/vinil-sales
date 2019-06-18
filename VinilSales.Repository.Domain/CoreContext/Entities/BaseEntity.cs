@@ -35,7 +35,15 @@ namespace VinilSales.Repository.Domain.CoreContext.Entities
         }
 
         public List<string> Mensagens { get; } = new List<string>();
-        public bool Invalido { get { return Mensagens.Count > 0; } }
+        public bool Invalido
+        {
+            get {
+                Mensagens.Clear();
+                Validacao();
+
+                return Mensagens.Count > 0;
+            }
+        }
         public abstract void Validacao();
 
         #region # Factory
