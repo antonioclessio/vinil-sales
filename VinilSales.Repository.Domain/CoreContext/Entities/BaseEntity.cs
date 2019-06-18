@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using VinilSales.Domain.CoreContext.Enum;
 
 namespace VinilSales.Repository.Domain.CoreContext.Entities

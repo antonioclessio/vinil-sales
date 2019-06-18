@@ -9,6 +9,6 @@ namespace VinilSales.Application.TabelaCashbackContext.Result
         public string Observacao { get; set; }
         public DateTime DataInicioVigencia { get; set; }
 
-        public List<ObterVigente_ItensResult> Itens { get; set; }
+        public List<ObterVigente_ItensResult> Itens { get; set; } = new List<ObterVigente_ItensResult>();
     }
 }

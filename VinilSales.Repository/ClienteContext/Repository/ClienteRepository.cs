@@ -25,7 +25,7 @@ namespace VinilSales.Repository.ClienteContext.Repository
             _dbContext.Cliente.Add(new ClienteEntity
             {
                 IdCliente = 1,
-                CPF = "22622492880",
+                CPF = "38093208038",
                 Nome = "Antônio Cléssio"
             });
 

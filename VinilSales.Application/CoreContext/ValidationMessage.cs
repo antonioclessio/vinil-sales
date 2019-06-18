@@ -5,18 +5,24 @@ namespace VinilSales.Application.CoreContext
 {
     public class ValidationMessage : IValidationMessage
     {
-        public List<string> Messages { get; }
+        private List<string> _messages;
+        public List<string> Messages
+        {
+            get
+            {
+                if (_messages == null)
+                    _messages = new List<string>();
+
+                return _messages;
+            }
+        }
+
         public bool IsEmpty
         {
             get
             {
                 return Messages.Count == 0;
             }
-        }
-
-        public ValidationMessage()
-        {
-            Messages = new List<string>();
         }
 
         public void Add(string message)

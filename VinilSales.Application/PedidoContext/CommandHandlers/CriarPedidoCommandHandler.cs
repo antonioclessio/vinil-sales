@@ -21,8 +21,6 @@ namespace VinilSales.Application.PedidoContext.CommandHandlers
         public CriarPedidoCommandHandler(IValidationMessage validation, IMediator mediator, IPedidoRepository repository)
             : base(validation, mediator, repository)
         {
-            _mediator = mediator;
-            _repository = repository;
         }
 
         public override void ConfigureMapper()

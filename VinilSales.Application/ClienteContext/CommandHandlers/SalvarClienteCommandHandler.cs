@@ -35,8 +35,12 @@ namespace VinilSales.Application.ClienteContext.CommandHandlers
                 return false;
             }
 
-            var clienteExistente = _repository.ObterPorCPF(request.CPF);
-            if (clienteExistente != null) { return false; }
+            var clienteExistente = await _repository.ObterPorCPF(request.CPF);
+            if (clienteExistente != null)
+            {
+                _validation.Add($"O CPF {request.CPF.Formatado} já está em uso por outro cliente");
+                return false;
+            }
             
             await _repository.Salvar(novoCliente);
             return true;
